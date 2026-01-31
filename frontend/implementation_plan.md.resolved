@@ -1,0 +1,40 @@
+# Implementation Plan V2 - Direct Response Funnel
+
+## Goal Description
+Pivot the Wishtune implementation from a standard e-commerce site to a **Direct Response Funnel** based on the "Free Manifestation Song" lead magnet found on `riagupta.com`.
+
+## User Review Required
+> [!IMPORTANT]
+> **Major Strategy Change**:
+> - We are hiding the "Shop" initially.
+> - **Primary Landing Page** will now be a **Squeeze Page** (Email Capture for Free Song).
+> - **After Submit**, user is redirected to a **Best Seller One-Time Offer (OTO)** page.
+
+## Proposed Changes
+
+### Component Architecture
+#### [NEW] [SqueezePage.jsx](file:///Users/viveksuyal/Documents/Wishtune/frontend/src/pages/SqueezePage.jsx)
+- **Hero**: "Manifestation without Homework".
+- **Form**: Email input + "Get Free Song" button.
+- **Social Proof**: "World's First Manifestation Music".
+
+#### [NEW] [OTOPage.jsx](file:///Users/viveksuyal/Documents/Wishtune/frontend/src/pages/OTOPage.jsx)
+- **Hook**: "Wait! Upgrade your results."
+- **Product**: "Shower Mixtape" (Entry level price).
+- **Direct Checkout**: Integrated simple payment form.
+
+#### [MODIFY] [App.jsx](file:///Users/viveksuyal/Documents/Wishtune/frontend/src/App.jsx)
+- Change default route `/` to `SqueezePage`.
+- Add route `/offer` for `OTOPage`.
+- Move current [LandingPage](file:///Users/viveksuyal/Documents/Wishtune/frontend/src/pages/LandingPage.jsx#30-82) to `/shop` (for browsing later).
+
+### Design Refinements
+- **Typography**: Increase contrast. Use "Monospace" for technical/patent-pending claims to sell the "Science" angle.
+- **Visuals**: Use hypnotic video backgrounds (using CSS gradients/animations) for the Squeeze Page.
+
+## Verification Plan
+### Manual Verification
+1.  User lands on `/`.
+2.  Enters email -> Redirects to `/offer`.
+3.  Sees "Sleep/Shower Mixtape" offer.
+4.  Can proceed to checkout or skip to `/shop`.
