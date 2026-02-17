@@ -908,7 +908,7 @@ Underneath, it carries gentle manifestation cues so you don’t have to “do”
               className="bg-gradient-to-r from-purple-600 to-purple-800 text-white font-bold py-5 px-10 rounded-full transition-all duration-500 hover:shadow-purple-200 hover:shadow-2xl flex items-center justify-center gap-3 whitespace-nowrap"
             >
               <PlayCircle size={22} className="animate-pulse" />
-              Start Manifesting in 21 Days
+              Start Manifesting
             </motion.button>
           </motion.div>
         </div>
