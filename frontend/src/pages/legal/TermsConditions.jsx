@@ -7,7 +7,7 @@ To use our services, you must be at least 18 years old and capable of forming a 
 
 ### 2. Intellectual Property Rights
 All content on Wishtune, including but not limited to audio files, designs, texts, branding, visuals, and all digital products, is the sole property of Wishtune and is protected under Indian and international copyright laws. Unauthorized reproduction, sharing, resale, or distribution of any content is strictly prohibited and subject to legal action.
-You are purchasing the affirmation layer only. Any music or beats embedded in the product are provided as a gift and are not intended for commercial or resale use.
+You are purchasing digital manifestation audio content only. Any music or beats embedded in the product are provided for personal listening and are not intended for commercial or resale use.
 
 ### 3. User Content
 By submitting testimonials, reviews, or comments to us, you grant Wishtune a perpetual, worldwide, royalty-free license to use, reproduce, and publish your content for marketing, educational, or promotional purposes.
@@ -35,7 +35,7 @@ You are responsible for providing accurate billing information. Incomplete, fail
 
 ### 10. Refunds and Cancellations
 All sales are final. Due to the digital nature of our products, no refunds, exchanges, or cancellations will be issued under any circumstances.
-You are responsible for reading all product details before purchasing. By purchasing, you confirm your understanding that you are buying affirmation content only.
+You are responsible for reading all product details before purchasing. By purchasing, you confirm your understanding that you are buying digital manifestation audio content only.
 
 ### 11. Chargebacks
 Any chargeback attempt will be considered fraudulent and may result in legal action. Users who initiate chargebacks will be permanently banned from future purchases, and access to all digital content will be revoked.
@@ -44,7 +44,7 @@ Any chargeback attempt will be considered fraudulent and may result in legal act
 We reserve the right to suspend or terminate access to our products or services at our sole discretion, including in cases of misuse, harassment, or breach of these Terms. No refunds will be given in such cases.
 
 ### 13. Confidentiality
-You agree to keep confidential any proprietary or sensitive information obtained through your purchase or interaction with Wishtune, including but not limited to scripts, processes, and affirmations.
+You agree to keep confidential any proprietary or sensitive information obtained through your purchase or interaction with Wishtune, including but not limited to scripts and internal processes.
 
 ### 14. Choice of Law
 These Terms are governed by and construed under the laws of India. You agree that any disputes will be handled in the jurisdiction of New Delhi, India.

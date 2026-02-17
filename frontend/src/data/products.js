@@ -5,12 +5,12 @@ export const products = [
     title: "Sleep Mixtape",
     price: "₹2,499",
     priceValue: 2499,
-    image: "/products/sleep.png",
+    image: "/sleep-mixtape.png",
     description:
       "Deep delta waves designed to trigger rapid REM cycles and cellular regeneration.",
     features: [
       "Triggers rapid REM cycles",
-      "Cellular regeneration frequencies",
+      "Cellular restoration support",
       "Clinical-grade delta waves",
       "Lifetime access + Updates",
     ],
@@ -35,7 +35,7 @@ export const products = [
     priceValue: 1999,
     image: "/products/party.png",
     description:
-      "High-vibe frequencies to shift your energy before a social event. Magnetic aura activation.",
+      "High-vibe audio to shift your energy before a social event. Magnetic aura activation.",
     features: [
       "Social anxiety reduction",
       "Energy boost (Gamma waves)",
@@ -59,9 +59,9 @@ export const products = [
     priceValue: 999,
     image: "/products/shower.png",
     description:
-      "Turn your daily shower into a clarity tank. 528Hz alignment track to wash away mental static.",
+      "Turn your daily shower into a clarity tank. A focused alignment track to wash away mental static.",
     features: [
-      "528Hz Miracle Tone",
+      "Alignment Reset Tone",
       "Water-tuned acoustics",
       "Short 15-min session",
       "Creative block breaker",
@@ -71,7 +71,7 @@ export const products = [
     faqs: [
       {
         q: "Why the shower?",
-        a: "Water amplifies sound vibration, making the frequency shift more potent.",
+        a: "Water creates a natural reset ritual, helping the audio feel more immersive and effective.",
       },
     ],
   },
@@ -86,8 +86,8 @@ export const products = [
       "A bespoke audio track engineered specifically for your unique energy signature, goals, and name.",
     features: [
       "1-on-1 Consultation with Ria",
-      "Custom Frequency Analysis",
-      "Your Name Embedded Subliminally",
+      "Custom Intention Analysis",
+      "Your Name Embedded Seamlessly",
       "Delivered within 7 days",
     ],
     tags: ["Exclusive", "Custom"],
@@ -107,9 +107,9 @@ export const products = [
     priceValue: 1999,
     image: "/products/journal.png",
     description:
-      "A digital integration companion. Stop bullet journaling and start frequency logging.",
+      "A digital integration companion. Stop bullet journaling and start manifestation tracking.",
     features: [
-      "Daily Frequency Check-ins",
+      "Daily Manifestation Check-ins",
       "Manifestation Prompts",
       "Audio Integration",
       "Progress Tracking",
@@ -134,7 +134,7 @@ export const categories = {
   party: {
     id: "party",
     title: "Party Mixtape",
-    subtitle: "High-vibe frequencies for social magnetism",
+    subtitle: "High-vibe audio for social magnetism",
   },
   shower: {
     id: "shower",
@@ -148,7 +148,7 @@ export const categories = {
   },
   journal: {
     id: "journal",
-    title: "Frequency Journal",
-    subtitle: "Track your vibrational shifts",
+    title: "Manifestation Journal",
+    subtitle: "Track your mindset shifts",
   },
 };

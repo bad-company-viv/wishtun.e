@@ -14,10 +14,10 @@ const blogPosts = [
     readTime: "5 min read",
   },
   {
-    id: "silent-affirmations",
-    title: "How Do Silent Affirmations Work?",
+    id: "silent-intention-cues",
+    title: "How Do Silent Intention Cues Work?",
     excerpt:
-      "Can your subconscious hear what your ears can't? The surprising truth about subliminal messaging and neural pathways.",
+      "How can subtle audio cues shape your focus? The practical truth about attention, repetition, and neural pathways.",
     category: "Science",
     image: "/images/blogs/silent.png",
     readTime: "7 min read",
@@ -33,7 +33,7 @@ const blogPosts = [
   },
   {
     id: "21-day-shift",
-    title: "The 21-Day Shift: Rewiring the Subconscious",
+    title: "The 21-Day Shift: Rewiring Your Patterns",
     excerpt:
       "Why 21 days? It's not just a habit rule—it's the biological cycle for neural plasticity to solidify new patterns.",
     category: "Guide",
@@ -60,8 +60,8 @@ const BlogPage = () => {
           The Wishtune Journal
         </h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Exploring the intersection of sound science, subconscious
-          reprogramming, and the art of easy manifestation.
+          Exploring the intersection of sound science, mindset
+          training, and the art of easy manifestation.
         </p>
       </div>
 

@@ -152,35 +152,35 @@ const StickyPurchaseBar = ({ isVisible }) => {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-xl border-t border-purple-100 p-4 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] md:p-6"
+          className="fixed bottom-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-xl border-t border-purple-100 p-2.5 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] md:p-3"
         >
-          <div className="container-custom max-w-6xl flex items-center justify-between gap-4">
-            <div className="hidden md:flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl overflow-hidden shadow-md">
-                <img src="/products/sleep.png" alt="Product" className="w-full h-full object-cover" />
+          <div className="container-custom max-w-6xl flex items-center justify-between gap-3">
+            <div className="hidden md:flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg overflow-hidden shadow-md">
+                <img src="/sleep-mixtape.png" alt="Product" className="w-full h-full object-cover" />
               </div>
               <div>
-                <p className="font-bold text-gray-900 leading-tight">The Sleep Mixtape</p>
-                <p className="text-xs text-purple-600 font-bold uppercase tracking-widest">Flagship Offer</p>
+                <p className="font-bold text-gray-900 leading-tight text-sm">The Sleep Mixtape</p>
+                <p className="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Flagship Offer</p>
               </div>
             </div>
 
-            <div className="flex-1 md:flex-none flex items-center justify-between md:justify-end gap-6 md:gap-10">
+            <div className="flex-1 md:flex-none flex items-center justify-between md:justify-end gap-4 md:gap-6">
               <div className="hidden sm:block">
-                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1 text-center md:text-right">OFFER ENDS IN</p>
+                <p className="text-[9px] text-gray-400 font-bold uppercase tracking-widest mb-0.5 text-center md:text-right">OFFER ENDS IN</p>
                 <CountdownTimer />
               </div>
               <div className="text-left md:text-right">
-                <p className="text-[10px] text-gray-400 font-black uppercase tracking-tighter line-through">₹5,999</p>
-                <p className="text-2xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">₹2,499</p>
+                <p className="text-[9px] text-gray-400 font-black uppercase tracking-tighter line-through">₹5,999</p>
+                <p className="text-xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">₹2,499</p>
               </div>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => window.open('https://riagupta.com/product/sleep-mixtape/', '_blank')}
-                className="bg-gradient-to-r from-purple-600 to-purple-800 text-white font-black px-8 py-4 rounded-2xl shadow-xl shadow-purple-100 flex items-center gap-2 whitespace-nowrap text-sm md:text-base"
+                className="bg-gradient-to-r from-purple-600 to-purple-800 text-white font-black px-5 py-2.5 rounded-xl shadow-xl shadow-purple-100 flex items-center gap-2 whitespace-nowrap text-xs md:text-sm"
               >
-                SECURE ACCESS <ArrowRight size={18} />
+                SECURE ACCESS <ArrowRight size={16} />
               </motion.button>
             </div>
           </div>
@@ -358,13 +358,13 @@ const JourneySection = () => {
     {
       icon: <Moon className="w-8 h-8" />,
       title: "Drift Away",
-      description: "Our proprietary 432Hz 'Audio Alchemy' works while your conscious mind sleeps, bypassing all resistance.",
+      description: "Our signature sleep audio supports effortless manifestation while your conscious mind rests.",
       color: "bg-pink-100 text-pink-600"
     },
     {
       icon: <Sun className="w-8 h-8" />,
       title: "Wake Up Refined",
-      description: "Wake up with a new subconscious blueprint. Start your day with clarity, confidence, and magnetic energy.",
+      description: "Wake up with stronger intention. Start your day with clarity, confidence, and magnetic energy.",
       color: "bg-amber-100 text-amber-600"
     }
   ];
@@ -437,7 +437,7 @@ const QualificationSection = () => {
                 "You find traditional meditation difficult, boring, or impossible to stick to.",
                 "You're tired of 'trying' to manifest without seeing real-world results.",
                 "You have a busy life and need a success ritual that takes ZERO extra time.",
-                "You want to clear subconscious blocks like anxiety, lack, or self-doubt effortlessly."
+                "You want to release patterns like anxiety, lack, or self-doubt effortlessly."
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-4">
                   <Check size={20} className="text-green-500 shrink-0 mt-1" />
@@ -485,7 +485,7 @@ const ComparisonSection = () => {
   const comparisons = [
     {
       feature: "Audio Quality",
-      wishtune: "Lossless 432Hz Alchemy",
+      wishtune: "Lossless Audio Alchemy",
       youtube: "Compressed MP3/AAC",
     },
     {
@@ -494,9 +494,9 @@ const ComparisonSection = () => {
       youtube: "Unstable Phase Shifts",
     },
     {
-      feature: "Subconscious Layering",
-      wishtune: "Patent-Pending Affirmations",
-      youtube: "Basic Background Text",
+      feature: "Manifestation Messaging",
+      wishtune: "Goal-Aligned Audio Design",
+      youtube: "Generic Background Audio",
     },
     {
       feature: "Ad Interruptions",
@@ -521,7 +521,7 @@ const ComparisonSection = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-500 max-w-2xl mx-auto">
-            Why free YouTube frequencies might actually be holding you back.
+            Why free YouTube audio might actually be holding you back.
           </p>
         </div>
 
@@ -809,15 +809,15 @@ const HomePage = () => {
       fullDetail: `The Sleep Tape is a 60-minute calming audio for bedtime and slow mornings when your mind is naturally relaxed and more open to positive change.
 
 On the surface, it’s soft, peaceful music you’ll enjoy.
-Underneath, it has gentle affirmations layered in so you don’t have to “do” anything. Just press play.`,
+Underneath, it carries gentle manifestation cues so you don’t have to “do” anything. Just press play.`,
       duration: "60 minutes",
       sound: "Soft, dreamy, soothing music that helps you feel calm and sleepy.",
       perfectFor: "Sleep, morning calm, journaling, yoga, meditation, or winding down.",
       bestFor: "Anyone who wants a calmer mindset and stronger self-belief without adding a new routine.",
-      usage: "Play at bedtime. Headphones optional.",
+      usage: "Play at bedtime. Headphones optional. Let it run while you relax or fall asleep. Use daily for best results.",
       price: 2499,
       formattedPrice: "₹2,499",
-      img: "/products/sleep.png",
+      img: "/sleep-mixtape.png",
       color: "bg-[#1E1B4B]",
       shopUrl: "https://riagupta.com/product/sleep-mixtape/",
     }
@@ -881,7 +881,7 @@ Underneath, it has gentle affirmations layered in so you don’t have to “do�
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold leading-[1] mb-10 tracking-tight"
           >
-            Rewire While <br />
+            Manifest While <br />
             <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent italic">
               You Sleep.
             </span>
@@ -893,8 +893,8 @@ Underneath, it has gentle affirmations layered in so you don’t have to “do�
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Bypass your conscious resistance with the 432Hz Sleep Mixtape.
-            No effort. No meditation. Just press play and wake up transformed.
+            Manifest faster overnight with psychologist-designed calming music.
+            No rituals. No overthinking. Just press play and wake up aligned.
           </motion.p>
 
           <motion.div
@@ -908,7 +908,7 @@ Underneath, it has gentle affirmations layered in so you don’t have to “do�
               className="bg-gradient-to-r from-purple-600 to-purple-800 text-white font-bold py-5 px-10 rounded-full transition-all duration-500 hover:shadow-purple-200 hover:shadow-2xl flex items-center justify-center gap-3 whitespace-nowrap"
             >
               <PlayCircle size={22} className="animate-pulse" />
-              Start Your 21-Day Journey
+              Start Manifesting in 21 Days
             </motion.button>
           </motion.div>
         </div>
@@ -938,8 +938,8 @@ Underneath, it has gentle affirmations layered in so you don’t have to “do�
 
       {/* SINGLE PRODUCT SHOWCASE */}
       <section id="products" className="py-24 md:py-40 px-4 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-        <div className="container-custom max-w-6xl relative">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="container-custom max-w-7xl relative">
+          <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-12 items-center">
             {/* Product Image */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -947,26 +947,23 @@ Underneath, it has gentle affirmations layered in so you don’t have to “do�
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="absolute inset-0 bg-purple-200 rounded-[3rem] blur-3xl opacity-30 animate-pulse" />
-              <div className="relative rounded-[3rem] overflow-hidden border border-purple-100 shadow-2xl bg-white aspect-[4/5]">
+              <div className="relative rounded-[2.5rem] overflow-hidden border border-purple-100 shadow-2xl bg-white aspect-[16/10]">
                 <img
-                  src="/products/sleep.png"
+                  src="/sleep-mixtape.png"
                   alt="The Sleep Mixtape"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute top-8 right-8 bg-purple-600 text-white px-6 py-2 rounded-full text-xs font-black shadow-xl tracking-widest">
+                <div className="absolute top-6 left-6 bg-purple-600 text-white px-6 py-2 rounded-full text-xs font-black shadow-xl tracking-widest">
                   FLAGSHIP OFFER
                 </div>
-              </div>
-
-              {/* Trust Badge */}
-              <div className="absolute -bottom-8 -right-8 bg-white p-6 rounded-3xl shadow-2xl border border-purple-50 flex items-center gap-4 max-w-[240px]">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                  <Shield size={24} />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-gray-900 leading-tight">100% Secure & Guaranteed</p>
-                  <p className="text-[10px] text-gray-500 uppercase font-bold tracking-tighter">Lifetime Access Included</p>
+                <div className="absolute bottom-5 right-5 bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-xl border border-purple-100 flex items-center gap-3 max-w-[220px]">
+                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                    <Shield size={20} />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-gray-900 leading-tight">100% Secure & Guaranteed</p>
+                    <p className="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Lifetime Access</p>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -976,61 +973,59 @@ Underneath, it has gentle affirmations layered in so you don’t have to “do�
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-10"
+              className="bg-white rounded-[2.5rem] border border-purple-100 shadow-[0_20px_60px_rgba(88,28,135,0.08)] p-6 md:p-8 space-y-6"
             >
               <div>
-                <div className="flex items-center gap-3 text-purple-600 font-black text-sm uppercase tracking-[0.3em] mb-4">
-                  <Zap size={16} /> 432Hz Audio Alchemy
+                <div className="flex items-center gap-3 text-purple-600 font-black text-sm uppercase tracking-[0.3em] mb-3">
+                  <Zap size={16} /> Manifestation Music
                 </div>
-                <div className="flex items-center justify-between gap-4 mb-2">
-                  <h2 className="text-5xl md:text-7xl font-serif font-bold text-gray-900 leading-tight">
-                    The <span className="italic">Sleep</span> <br />Mixtape
-                  </h2>
-                  <div className="hidden md:block scale-75 origin-right">
-                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-2 text-right">EXPIRES SOON</p>
+                <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 leading-tight mb-4">
+                  The <span className="italic">Sleep</span> <br />Mixtape
+                </h2>
+                <div className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest text-gray-400">
+                  <span>Offer Ends In</span>
+                  <div className="scale-90 origin-left">
                     <CountdownTimer />
                   </div>
                 </div>
               </div>
 
-              <p className="text-xl text-gray-500 font-light leading-relaxed">
-                The Sleep Tape is a 60-minute neuro-acoustic audio for bedtime when your mind is naturally relaxed and ready for deep reprogramming.
+              <p className="text-lg text-gray-500 font-light leading-relaxed">
+                The Sleep Tape is a 60-minute calming audio for bedtime and slow mornings when your mind is naturally relaxed and more open to positive change.
               </p>
 
-              <div className="space-y-6">
+              <div className="space-y-3">
                 {[
-                  "60-Minute Professional Audio Engineering",
-                  "Phase-Synced Binaural Beats (Delta State)",
-                  "Subconscious Affirmation Layering",
-                  "Lossless Quality (432Hz Tuning)",
-                  "Mobile & Tablet Optimized Listening"
+                  "Track Duration: 60 minutes",
+                  "Soft, dreamy music for deep rest",
+                  "Perfect for sleep, yoga, and wind-down",
+                  "Builds calm confidence and self-belief",
+                  "Use nightly for best manifestation results"
                 ].map((feature, i) => (
-                  <div key={i} className="flex items-center gap-4 text-gray-700">
-                    <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center shrink-0">
-                      <Check size={14} className="text-purple-600" />
-                    </div>
-                    <span className="font-medium">{feature}</span>
+                  <div key={i} className="flex items-start gap-3 text-gray-700">
+                    <Check size={18} className="text-purple-600 shrink-0 mt-0.5" />
+                    <span className="font-medium leading-relaxed text-sm">{feature}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="pt-8 border-t border-purple-100">
-                <div className="flex items-end gap-4 mb-8">
+              <div className="pt-6 border-t border-purple-100">
+                <div className="flex items-end gap-4 mb-5">
                   <div>
                     <p className="text-gray-400 text-sm font-bold uppercase tracking-widest line-through">₹5,999</p>
-                    <p className="text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">₹2,499</p>
+                    <p className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">₹2,499</p>
                   </div>
                   <div className="bg-purple-100 text-purple-700 px-4 py-2 rounded-2xl text-xs font-black uppercase tracking-widest mb-2">
                     58% OFF TODAY
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-3">
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => window.open('https://riagupta.com/product/sleep-mixtape/', '_blank')}
-                    className="w-full bg-gradient-to-r from-purple-600 to-purple-800 text-white font-black text-2xl py-8 rounded-[2rem] shadow-2xl shadow-purple-200 border border-purple-500/20 flex items-center justify-center gap-4 group"
+                    className="w-full bg-gradient-to-r from-purple-600 to-purple-800 text-white font-black text-xl py-5 rounded-full shadow-2xl shadow-purple-200 border border-purple-500/20 flex items-center justify-center gap-4 group"
                   >
                     YES! SECURE MY MIXTAPE <ArrowRight className="group-hover:translate-x-2 transition-transform" />
                   </motion.button>
@@ -1038,8 +1033,6 @@ Underneath, it has gentle affirmations layered in so you don’t have to “do�
                     Instant Digital Delivery • One-Time Payment
                   </p>
                 </div>
-
-                <BonusStack />
               </div>
             </motion.div>
           </div>
@@ -1114,9 +1107,9 @@ Underneath, it has gentle affirmations layered in so you don’t have to “do�
           </h2>
           <div className="space-y-8">
             {[
-              { q: "Will I hear the affirmations?", a: "No, the affirmations are layered beneath the music using patent-pending frequency modulation. They bypass your conscious 'logical' mind and go straight to your subconscious. You'll just hear high-vibe, premium music." },
+              { q: "What makes this different from regular music?", a: "Every track is intentionally crafted for manifestation with structured pacing, message design, and deep-listening production. You still hear premium music, but with a stronger purpose behind every layer." },
               { q: "How long before I see results?", a: "Most users report a shift in their mood and 'lucky' synchronicities within the first 3-7 days. For deep rewiring, we recommend consistent use for 21 days." },
-              { q: "Is this scientifically proven?", a: "Our music uses neuro-acoustic principles like binaural beats and isochronic tones to move your brain into Alpha and Theta states—the states most receptive to new information and manifestation." },
+              { q: "Is this scientifically proven?", a: "Wishtune is designed as a manifestation support tool, not a medical or scientific treatment. Most users use it to stay consistent, focused, and emotionally aligned with their goals." },
               { q: "What if it doesn't work for me?", a: "We offer a 21-Day Money Back Guarantee. If you listen consistently for 21 days and don't feel a shift, contact us for a full refund. No questions asked." },
               { q: "Can I use while doing other things?", a: "Yes! That's the beauty of WishTune. You can manifest while you sleep, work out, shower, or even at a party. It's manifestation on autopilot." }
             ].map((faq, i) => (

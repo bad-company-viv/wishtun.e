@@ -18,8 +18,8 @@ Please read all product descriptions carefully before purchasing.
 
 ### 3. Product Clarity
 By purchasing from Wishtune, you acknowledge that:
-- You are purchasing the affirmation content only
-- Any music used is a gifted background and not part of the paid product
+- You are purchasing digital manifestation audio content only
+- Any music used is part of your personal listening product and not for resale
 - The background music is for personal use only, and not for resale, redistribution, or commercial use
 
 ### 4. Unauthorized Distribution

@@ -93,13 +93,13 @@ const LandingPage = () => {
       price: 2499,
       formattedPrice: "₹2,499",
       path: "/shop/sleep",
-      img: "/products/sleep.png",
+      img: "/sleep-mixtape.png",
       badge: "BESTSELLER",
     },
     {
       id: "party",
       title: "Party Mixtape",
-      description: "High-vibe frequencies for social magnetism",
+      description: "High-vibe audio for social magnetism",
       price: 1999,
       formattedPrice: "₹1,999",
       path: "/shop/party",
@@ -118,7 +118,7 @@ const LandingPage = () => {
     {
       id: "personalized",
       title: "Personalized Track",
-      description: "Custom-designed frequency for your specific goals",
+      description: "Custom-designed audio for your specific goals",
       price: 9999,
       formattedPrice: "₹9,999",
       path: "/shop/personalized",
@@ -128,7 +128,7 @@ const LandingPage = () => {
     {
       id: "journal",
       title: "E-Journal",
-      description: "Digital integration guide for your frequency practice",
+      description: "Digital integration guide for your manifestation practice",
       price: 1999,
       formattedPrice: "₹1,999",
       path: "/shop/journal",
@@ -171,7 +171,7 @@ const LandingPage = () => {
             transition={{ delay: 0.4 }}
             className="text-xl text-gray-600 max-w-2xl font-light"
           >
-            Tools to rewrite your reality, one frequency at a time.
+            Tools to rewrite your reality, one track at a time.
           </motion.p>
 
           <div className="mt-8 w-full flex justify-center">

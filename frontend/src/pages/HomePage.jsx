@@ -74,7 +74,7 @@ const HomePage = () => {
             </h1>
             <p className="text-xl text-white/60 mb-8 max-w-lg leading-relaxed">
               The world’s first manifestation music designed to shift your
-              frequency without the "homework". No journaling. No rituals. Just
+              state without the "homework". No journaling. No rituals. Just
               listen.
             </p>
 
@@ -117,8 +117,8 @@ const HomePage = () => {
                 </div>
 
                 {/* <div className="text-center mb-8">
-                                    <div className="font-bold text-xl mb-1">Wealth Frequency</div>
-                                    <div className="text-white/50 text-sm">432Hz • Alpha Waves</div>
+                                    <div className="font-bold text-xl mb-1">Wealth Track</div>
+                                    <div className="text-white/50 text-sm">Deep Focus • Alpha Waves</div>
                                 </div> */}
 
                 {/* Animated Equalizer */}
@@ -204,7 +204,7 @@ const HomePage = () => {
                 price: 2499,
                 formattedPrice: "₹2,499",
                 path: "/shop/sleep",
-                img: "/products/sleep.png",
+                img: "/sleep-mixtape.png",
                 color: "bg-[#1E1B4B]",
               }, // Indigo
               {

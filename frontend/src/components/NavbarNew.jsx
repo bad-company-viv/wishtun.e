@@ -55,13 +55,13 @@ const Navbar = () => {
           }`}
       >
         <div className="container-custom">
-          <div className="flex items-center justify-between h-20 md:h-24">
+          <div className="flex items-center justify-between h-14 md:h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
               <img
                 src="/images/wishtune-logo.png"
                 alt="Wishtune Logo"
-                className="h-12 w-auto object-contain"
+                className="h-8 md:h-10 w-auto object-contain"
               />
             </Link>
 
@@ -74,10 +74,10 @@ const Navbar = () => {
               {/* Free Gift CTA - Desktop */}
               <Link
                 to="/free-gift"
-                className="hidden md:flex items-center gap-2 bg-gradient-to-r from-brand-gold to-brand-gold-dark text-brand-dark font-bold px-6 py-3 rounded-full hover:shadow-glow transition-all hover:scale-105"
+                className="hidden md:flex items-center gap-2 bg-gradient-to-r from-brand-gold to-brand-gold-dark text-brand-dark font-bold px-4 py-2 rounded-full hover:shadow-glow transition-all hover:scale-105"
               >
-                <Sparkles className="w-4 h-4" />
-                <span className="text-sm">Free Gift</span>
+                <Sparkles className="w-3.5 h-3.5" />
+                <span className="text-xs">Free Gift</span>
               </Link>
 
               {/* Mobile Menu Button */}

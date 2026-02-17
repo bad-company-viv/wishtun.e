@@ -65,34 +65,31 @@ const BlogPost = () => {
               <span className="text-brand-gold italic">reprogram</span>.
             </p>
 
-            <h3>The Frequency of Entertainment</h3>
+            <h3>The Loop of Entertainment</h3>
             <p>
               Pop music is engineered to be catchy. It uses repetition, distinct
               hooks, and relatable lyrics. While this is great for a dopamine
               hit, notice what the lyrics are usually about: heartbreak,
               longing, struggle, or "grinding" to get to the top. When you
-              listen to a heartbreak song on repeat, you are essentially
-              affirming the vibration of loss into your subconscious mind.
+              listen to a heartbreak song on repeat, you reinforce that emotional
+              pattern and keep your focus there.
             </p>
 
             <h3>The Science of Wishtune</h3>
             <p>
               Wishtune tracks are built differently. We start with the{" "}
-              <strong>Binaural Beat</strong> or{" "}
-              <strong>Solfeggio Frequency</strong> layer—sounds proven to shift
+              <strong>Binaural Beat</strong> layer, a listening structure designed to shift
               brainwave states (e.g., from Beta stress to Alpha flow).
             </p>
             <p>
-              Then, we layer <strong>Subliminal Affirmations</strong>. These are
-              positive statements recorded just below the threshold of conscious
-              hearing. Your conscious mind hears a synth pad or a drum loop, but
-              your subconscious hears:{" "}
-              <em>"I am worthy of abundance. Money flows to me easily."</em>
+              Then, we layer subtle intention cues into the arrangement and pacing.
+              Your conscious mind hears a synth pad or a drum loop, while the
+              production keeps nudging your attention toward expansion and action.
             </p>
 
             <blockquote className="border-l-4 border-brand-gold pl-6 py-2 my-8 text-gray-700 italic bg-brand-gold/5 rounded-r-lg">
-              "You don't manifest what you want. You manifest who you are. And
-              who you are is a collection of subconscious patterns."
+              "You don't manifest what you want. You manifest who you practice
+              being every day."
             </blockquote>
 
             <h3>Why Passive Listening Works Best</h3>

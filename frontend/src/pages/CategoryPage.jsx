@@ -15,7 +15,7 @@ const CategoryPage = () => {
     category = {
       id: categoryId,
       title: categoryId.charAt(0).toUpperCase() + categoryId.slice(1).replace('-', ' '),
-      subtitle: "Curated frequencies for your journey"
+      subtitle: "Curated tracks for your journey"
     };
   }
 

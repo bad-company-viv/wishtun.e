@@ -65,7 +65,7 @@ const OTOPage = () => {
               YOUR DOWNLOAD IS SECURED!
             </span>
             <h1 className="text-4xl md:text-7xl font-serif font-bold mb-8 leading-tight">
-              One Frequency is <br />
+              One Track is <br />
               <span className="italic">Not Enough.</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed italic">
@@ -95,7 +95,7 @@ const OTOPage = () => {
                 </li>
                 <li className="flex items-start gap-2 text-gray-600">
                   <X size={18} className="text-red-400" />{" "}
-                  <span>No Social Magnetism Frequencies</span>
+                  <span>No Social Magnetism Support</span>
                 </li>
                 <li className="flex items-start gap-2 text-gray-600">
                   <X size={18} className="text-red-400" />{" "}

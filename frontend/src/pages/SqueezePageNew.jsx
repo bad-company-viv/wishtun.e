@@ -220,7 +220,7 @@ const SqueezePage = () => {
                 FREE DIGITAL DOWNLOAD
               </span>
               <h2 className="text-2xl md:text-3xl font-serif font-bold mb-2">
-                The 432Hz "Sleep Reset"
+                The "Sleep Reset" Track
               </h2>
               <h3 className="text-gray-600 font-serif italic text-xl">
                 Silence the Noise.

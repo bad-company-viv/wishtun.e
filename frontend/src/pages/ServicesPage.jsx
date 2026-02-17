@@ -111,7 +111,7 @@ const ServicesPage = () => {
           <TrustSignal
             icon={<Award size={32} />}
             title="5+ Years of Study"
-            desc="Graduated with First Class Honors in Psychology. Mastered subconscious reprogramming."
+            desc="Graduated with First Class Honors in Psychology. Mastered mindset and behavior reconditioning."
           />
           <TrustSignal
             icon={<Users size={32} />}
