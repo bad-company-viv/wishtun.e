@@ -235,7 +235,7 @@ const SqueezePage = () => {
               </div>
               <div className="flex items-center gap-3 text-gray-700">
                 <Check className="text-brand-gold" size={18} />{" "}
-                <span>Neuro-Acoustic Delta Wave Tuning</span>
+                <span>Gentle sounds to help you fall asleep faster</span>
               </div>
             </div>
 
