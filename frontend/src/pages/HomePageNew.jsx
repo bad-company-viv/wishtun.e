@@ -152,36 +152,38 @@ const StickyPurchaseBar = ({ isVisible }) => {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-xl border-t border-purple-100 p-4 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] md:p-6"
+          className="fixed bottom-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-xl border-t border-purple-100 px-4 py-3 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
         >
-          <div className="container-custom max-w-6xl flex items-center justify-between gap-4">
-            <div className="hidden md:flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl overflow-hidden shadow-md">
-                <img src="/products/sleep.png" alt="Product" className="w-full h-full object-cover" />
+          <div className="container-custom max-w-6xl">
+            <div className="flex items-center justify-between gap-3 rounded-2xl border border-purple-100 bg-white px-3 py-2 shadow-sm md:gap-6 md:px-5 md:py-3">
+              <div className="hidden md:flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl overflow-hidden shadow-md">
+                  <img src="/images/sleep-mixtape.png" alt="Product" className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <p className="font-bold text-gray-900 leading-tight">The Sleep Mixtape</p>
+                  <p className="text-xs text-purple-600 font-bold uppercase tracking-widest">Flagship Offer</p>
+                </div>
               </div>
-              <div>
-                <p className="font-bold text-gray-900 leading-tight">The Sleep Mixtape</p>
-                <p className="text-xs text-purple-600 font-bold uppercase tracking-widest">Flagship Offer</p>
-              </div>
-            </div>
 
-            <div className="flex-1 md:flex-none flex items-center justify-between md:justify-end gap-6 md:gap-10">
-              <div className="hidden sm:block">
-                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1 text-center md:text-right">OFFER ENDS IN</p>
-                <CountdownTimer />
+              <div className="flex-1 md:flex-none flex items-center justify-between md:justify-end gap-4 md:gap-7">
+                <div className="hidden sm:block">
+                  <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1 text-center md:text-right">Offer Ends In</p>
+                  <CountdownTimer />
+                </div>
+                <div className="text-left md:text-right">
+                  <p className="text-[10px] text-gray-400 font-black uppercase tracking-tighter line-through">₹5,999</p>
+                  <p className="text-2xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">₹2,499</p>
+                </div>
+                <motion.button
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
+                  onClick={() => window.open('https://riagupta.com/product/sleep-mixtape/', '_blank')}
+                  className="bg-gradient-to-r from-purple-600 to-purple-800 text-white font-black px-6 py-3 md:px-8 md:py-4 rounded-2xl shadow-xl shadow-purple-100 flex items-center gap-2 whitespace-nowrap text-sm md:text-base"
+                >
+                  SECURE ACCESS <ArrowRight size={18} />
+                </motion.button>
               </div>
-              <div className="text-left md:text-right">
-                <p className="text-[10px] text-gray-400 font-black uppercase tracking-tighter line-through">₹5,999</p>
-                <p className="text-2xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">₹2,499</p>
-              </div>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => window.open('https://riagupta.com/product/sleep-mixtape/', '_blank')}
-                className="bg-gradient-to-r from-purple-600 to-purple-800 text-white font-black px-8 py-4 rounded-2xl shadow-xl shadow-purple-100 flex items-center gap-2 whitespace-nowrap text-sm md:text-base"
-              >
-                SECURE ACCESS <ArrowRight size={18} />
-              </motion.button>
             </div>
           </div>
         </motion.div>
@@ -817,7 +819,7 @@ Underneath, it has gentle affirmations layered in so you don’t have to “do�
       usage: "Play at bedtime. Headphones optional.",
       price: 2499,
       formattedPrice: "₹2,499",
-      img: "/products/sleep.png",
+      img: "/images/sleep-mixtape.png",
       color: "bg-[#1E1B4B]",
       shopUrl: "https://riagupta.com/product/sleep-mixtape/",
     }
@@ -937,90 +939,85 @@ Underneath, it has gentle affirmations layered in so you don’t have to “do�
       <ComparisonSection />
 
       {/* SINGLE PRODUCT SHOWCASE */}
-      <section id="products" className="py-24 md:py-40 px-4 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-        <div className="container-custom max-w-6xl relative">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Product Image */}
+      <section id="products" className="py-20 md:py-32 px-4 bg-[#f4f4f7] overflow-hidden">
+        <div className="container-custom max-w-7xl relative">
+          <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 xl:gap-14 items-center">
+            {/* Product Image Card */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="absolute inset-0 bg-purple-200 rounded-[3rem] blur-3xl opacity-30 animate-pulse" />
-              <div className="relative rounded-[3rem] overflow-hidden border border-purple-100 shadow-2xl bg-white aspect-[4/5]">
+              <div className="absolute inset-0 bg-purple-200 rounded-[2.5rem] blur-3xl opacity-30 animate-pulse" />
+              <div className="relative rounded-[2.5rem] overflow-hidden border border-purple-100 shadow-[0_35px_90px_rgba(17,24,39,0.22)] bg-white aspect-[16/10]">
                 <img
-                  src="/products/sleep.png"
+                  src="/images/sleep-mixtape.png"
                   alt="The Sleep Mixtape"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute top-8 right-8 bg-purple-600 text-white px-6 py-2 rounded-full text-xs font-black shadow-xl tracking-widest">
+                <div className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-purple-600 text-white px-4 sm:px-5 py-2 rounded-full text-[11px] font-black shadow-xl tracking-widest">
                   FLAGSHIP OFFER
                 </div>
-              </div>
 
-              {/* Trust Badge */}
-              <div className="absolute -bottom-8 -right-8 bg-white p-6 rounded-3xl shadow-2xl border border-purple-50 flex items-center gap-4 max-w-[240px]">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                  <Shield size={24} />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-gray-900 leading-tight">100% Secure & Guaranteed</p>
-                  <p className="text-[10px] text-gray-500 uppercase font-bold tracking-tighter">Lifetime Access Included</p>
+                <div className="absolute right-3 bottom-3 sm:right-4 sm:bottom-4 bg-white/95 backdrop-blur p-2 sm:p-2.5 rounded-2xl shadow-2xl border border-purple-50 flex items-center gap-2 max-w-[170px] sm:max-w-[195px]">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0">
+                    <Shield size={15} />
+                  </div>
+                  <div>
+                    <p className="text-[11px] sm:text-xs font-bold text-gray-900 leading-tight">100% Secure & Guaranteed</p>
+                    <p className="text-[8px] text-gray-500 uppercase font-bold tracking-tight">Lifetime Access Included</p>
+                  </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Product Details */}
+            {/* Product Details Card */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-10"
+              className="rounded-[2.5rem] border border-purple-100 bg-white/95 backdrop-blur-sm shadow-[0_30px_100px_rgba(17,24,39,0.08)] p-8 md:p-10 xl:p-12 space-y-8"
             >
               <div>
-                <div className="flex items-center gap-3 text-purple-600 font-black text-sm uppercase tracking-[0.3em] mb-4">
-                  <Zap size={16} /> 432Hz Audio Alchemy
+                <div className="flex items-center gap-3 text-purple-600 font-black text-sm uppercase tracking-[0.28em] mb-5">
+                  <Zap size={16} /> Manifestation Music
                 </div>
-                <div className="flex items-center justify-between gap-4 mb-2">
-                  <h2 className="text-5xl md:text-7xl font-serif font-bold text-gray-900 leading-tight">
-                    The <span className="italic">Sleep</span> <br />Mixtape
-                  </h2>
-                  <div className="hidden md:block scale-75 origin-right">
-                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-2 text-right">EXPIRES SOON</p>
-                    <CountdownTimer />
-                  </div>
+                <h2 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 leading-[0.95] mb-6">
+                  The <span className="italic">Sleep</span> <br />Mixtape
+                </h2>
+                <div className="flex items-center gap-3">
+                  <p className="text-[11px] text-gray-400 font-black uppercase tracking-[0.24em]">Offer Ends In</p>
+                  <CountdownTimer />
                 </div>
               </div>
 
               <p className="text-xl text-gray-500 font-light leading-relaxed">
-                The Sleep Tape is a 60-minute neuro-acoustic audio for bedtime when your mind is naturally relaxed and ready for deep reprogramming.
+                The Sleep Tape is a 60-minute calming audio for bedtime and slow mornings when your mind is naturally relaxed and more open to positive change.
               </p>
 
-              <div className="space-y-6">
+              <div className="space-y-5">
                 {[
-                  "60-Minute Professional Audio Engineering",
-                  "Phase-Synced Binaural Beats (Delta State)",
-                  "Subconscious Affirmation Layering",
-                  "Lossless Quality (432Hz Tuning)",
-                  "Mobile & Tablet Optimized Listening"
+                  "Track Duration: 60 minutes",
+                  "Soft, dreamy music for deep rest",
+                  "Perfect for sleep, yoga, and wind-down",
+                  "Builds calm confidence and self-belief",
+                  "Use nightly for best manifestation results"
                 ].map((feature, i) => (
                   <div key={i} className="flex items-center gap-4 text-gray-700">
-                    <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center shrink-0">
-                      <Check size={14} className="text-purple-600" />
-                    </div>
-                    <span className="font-medium">{feature}</span>
+                    <Check size={18} className="text-purple-600 shrink-0" />
+                    <span className="font-medium text-base md:text-lg">{feature}</span>
                   </div>
                 ))}
               </div>
 
               <div className="pt-8 border-t border-purple-100">
-                <div className="flex items-end gap-4 mb-8">
+                <div className="flex flex-wrap items-end gap-4 mb-6">
                   <div>
                     <p className="text-gray-400 text-sm font-bold uppercase tracking-widest line-through">₹5,999</p>
-                    <p className="text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">₹2,499</p>
+                    <p className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent leading-none">₹2,499</p>
                   </div>
-                  <div className="bg-purple-100 text-purple-700 px-4 py-2 rounded-2xl text-xs font-black uppercase tracking-widest mb-2">
+                  <div className="bg-purple-100 text-purple-700 px-4 py-2 rounded-2xl text-sm font-black uppercase tracking-widest mb-2">
                     58% OFF TODAY
                   </div>
                 </div>
@@ -1030,7 +1027,7 @@ Underneath, it has gentle affirmations layered in so you don’t have to “do�
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => window.open('https://riagupta.com/product/sleep-mixtape/', '_blank')}
-                    className="w-full bg-gradient-to-r from-purple-600 to-purple-800 text-white font-black text-2xl py-8 rounded-[2rem] shadow-2xl shadow-purple-200 border border-purple-500/20 flex items-center justify-center gap-4 group"
+                    className="w-full bg-gradient-to-r from-purple-600 to-purple-800 text-white font-black text-2xl py-6 rounded-[2rem] shadow-2xl shadow-purple-200 border border-purple-500/20 flex items-center justify-center gap-4 group"
                   >
                     YES! SECURE MY MIXTAPE <ArrowRight className="group-hover:translate-x-2 transition-transform" />
                   </motion.button>
@@ -1038,13 +1035,11 @@ Underneath, it has gentle affirmations layered in so you don’t have to “do�
                     Instant Digital Delivery • One-Time Payment
                   </p>
                 </div>
-
-                <BonusStack />
               </div>
             </motion.div>
           </div>
 
-          <div className="flex items-center justify-center gap-6 pt-4 grayscale opacity-40">
+          <div className="flex items-center justify-center gap-6 pt-6 grayscale opacity-40">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Stripe" className="h-6" />
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="h-6" />
             <div className="w-px h-8 bg-gray-200" />
