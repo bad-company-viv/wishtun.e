@@ -15,6 +15,7 @@ import {
   X,
   Send,
   CheckCircle,
+  Clock,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -173,32 +174,35 @@ const OTOPage = () => {
                 </li>
               </ul>
             </div>
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 text-left relative border border-purple-100">
-              <div className="absolute top-4 right-4 bg-purple-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">
-                Recommended
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-10 text-left relative border border-purple-100 rounded-[2.5rem] shadow-2xl">
+              <div className="flex items-center gap-2 text-purple-600 font-black uppercase tracking-widest text-[10px] mb-4">
+                <Sparkles size={14} /> Manifestation Music
               </div>
-              <h3 className="text-base font-bold mb-6 text-purple-700 uppercase tracking-widest">Music + Guidance Package</h3>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-gray-800 text-sm">
-                  <Check size={16} className="text-purple-500 shrink-0 mt-0.5" />
-                  <span>Full healing music library (all tracks)</span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-800 text-sm">
-                  <Check size={16} className="text-purple-500 shrink-0 mt-0.5" />
-                  <span>Multi-layered subconscious affirmation architecture</span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-800 text-sm">
-                  <Check size={16} className="text-purple-500 shrink-0 mt-0.5" />
-                  <span>Guided reprogramming sessions with Ria</span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-800 text-sm">
-                  <Check size={16} className="text-purple-500 shrink-0 mt-0.5" />
-                  <span>Personalized 21-day transformation roadmap</span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-800 text-sm">
-                  <Check size={16} className="text-purple-500 shrink-0 mt-0.5" />
-                  <span>Priority support & community access</span>
-                </li>
+              <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-950 mb-4 leading-tight">
+                The <span className="italic">Sleep</span> <br /> Mixtape
+              </h1>
+
+              <div className="flex items-center gap-2 bg-purple-100 text-purple-700 px-3 py-1 rounded-lg text-[10px] font-bold w-fit mb-8">
+                <Clock size={12} /> OFFER ENDS IN 06:16
+              </div>
+
+              <p className="text-gray-500 mb-10 text-lg font-light leading-relaxed">
+                The Sleep Tape is a 60-minute calming audio for bedtime and slow mornings when your mind is naturally relaxed and more open to positive change.
+              </p>
+
+              <ul className="space-y-4 mb-10">
+                {[
+                  "Track Duration: 60 minutes",
+                  "Soft, dreamy music for deep rest",
+                  "Perfect for sleep, yoga, and wind-down",
+                  "Builds calm confidence and self-belief",
+                  "Use nightly for best manifestation results"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-gray-700 font-medium">
+                    <Check size={18} className="text-purple-600 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </motion.div>
@@ -206,9 +210,13 @@ const OTOPage = () => {
           {/* Pricing & Decision */}
           <div className="mb-16 flex flex-col items-center">
             <div className="mb-8">
-              <p className="text-gray-400 text-sm line-through mb-1">₹5,999 regular price</p>
-              <p className="text-4xl sm:text-6xl md:text-7xl font-black text-purple-600 leading-none">₹2,499</p>
-              <p className="text-gray-500 mt-2 text-sm">One-time payment • Instant access</p>
+              <p className="text-gray-400 text-sm font-bold uppercase tracking-widest line-through mb-1">₹5,999</p>
+              <div className="flex items-center justify-center gap-4">
+                <p className="text-6xl md:text-8xl font-black text-purple-600 leading-none">₹2,499</p>
+                <div className="bg-purple-100 text-purple-600 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest">
+                  58% OFF TODAY
+                </div>
+              </div>
             </div>
 
             <div className="w-full max-w-lg space-y-6">
@@ -216,16 +224,19 @@ const OTOPage = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={handleAcceptOffer}
-                className="w-full bg-gradient-to-r from-purple-600 to-purple-800 text-white font-black text-xl md:text-2xl py-7 rounded-[2rem] shadow-2xl shadow-purple-200 flex items-center justify-center gap-4 hover:shadow-purple-300 transition-all duration-300"
+                className="w-full bg-purple-600 text-white font-black text-xl md:text-2xl py-7 rounded-[2rem] shadow-2xl flex items-center justify-center gap-4 hover:bg-purple-700 transition-all duration-300"
               >
-                <Sparkles className="w-6 h-6" />
-                Yes, I Want the Core Package
+                YES! SECURE MY MIXTAPE
                 <ArrowRight className="w-6 h-6" />
               </motion.button>
 
+              <p className="text-gray-400 text-[10px] font-black uppercase tracking-[0.2em]">
+                INSTANT DIGITAL DELIVERY • ONE-TIME PAYMENT
+              </p>
+
               <button
                 onClick={() => navigate("/thank-you")}
-                className="text-gray-400 hover:text-gray-600 transition-colors text-sm font-medium"
+                className="text-gray-400 hover:text-gray-600 transition-colors text-sm font-medium pt-4"
               >
                 I'll stick with the free track for now
               </button>

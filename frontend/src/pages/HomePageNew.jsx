@@ -188,6 +188,8 @@ const ExitPopup = ({ isOpen, onClose }) => {
   );
 };
 
+
+
 // Science Education Section — NEW (TOFU Phase 1)
 const ScienceSection = () => {
   const pillars = [
@@ -465,37 +467,37 @@ const ProductLadderSection = () => {
     {
       level: "Start Here",
       title: "Free Manifestation Track",
-      subtitle: "10-Min Psychologist-Designed Audio",
-      description: "Experience Ria's work before anything else. A specially crafted track to shift your state and introduce you to subconscious healing music.",
+      subtitle: "10-Min Sleep-Optimized Audio",
+      description: "Experience Ria's work before anything else. A special sleep-priming track to shift your subconscious state while you drift off.",
       price: "Free",
       cta: "Download Free Track",
       href: "/free-gift",
       items: [
-        "10-minute healing music track",
+        "10-minute sleep-ready track",
+        "Introduction to Theta states",
         "Instant digital delivery",
-        "No card required",
-        "Experience before you commit",
+        "No email marketing spam",
       ],
       highlight: false,
       badge: "ENTRY POINT",
-      badgeColor: "bg-gray-100 text-gray-600",
-      btnClass: "border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white",
+      badgeColor: "bg-purple-100 text-purple-600",
+      btnClass: "border-2 border-purple-200 text-purple-700 hover:border-purple-600 hover:bg-purple-50",
     },
     {
       level: "Core Experience",
-      title: "Music + Guidance Package",
-      subtitle: "Healing Music & Coaching Sessions",
-      description: "The full experience — multi-layered healing music combined with Ria's guided coaching program to accelerate your subconscious transformation.",
+      title: "The Sleep Mixtape",
+      subtitle: "60-Min Bedtime Protocol",
+      description: "A 60-minute calming audio for bedtime and slow mornings when your mind is naturally relaxed and more open to positive change.",
       price: "₹2,499",
       originalPrice: "₹5,999",
-      cta: "Get the Core Package",
-      href: "https://riagupta.com/product/sleep-mixtape/",
+      cta: "Secure My Mixtape",
+      href: "/offer",
       items: [
-        "Full healing music library access",
-        "Layered affirmation architecture",
-        "Guided reprogramming sessions",
-        "21-day transformation roadmap",
-        "Dedicated support access",
+        "Track Duration: 60 minutes",
+        "Soft, dreamy music for deep rest",
+        "Perfect for sleep, yoga, and wind-down",
+        "Builds calm confidence and self-belief",
+        "Use nightly for best manifestation results",
       ],
       highlight: true,
       badge: "MOST POPULAR",
@@ -503,19 +505,19 @@ const ProductLadderSection = () => {
       btnClass: "bg-gradient-to-r from-purple-600 to-purple-800 text-white shadow-xl shadow-purple-200",
     },
     {
-      level: "Deep Dive",
+      level: "Personal Shift",
       title: "Premium Coaching",
-      subtitle: "1:1 with Ria Gupta",
-      description: "Work directly with Ria in a personalized coaching engagement. Psychology-led, experience-based, fully tailored to your specific patterns and goals.",
+      subtitle: "1:1 Strategy with Ria Gupta",
+      description: "A customized coaching engagement with Ria. We audit your specific subconscious blocks and anchor new beliefs during sleep.",
       price: "Custom",
       cta: "Book Discovery Call",
       href: "#contact",
       items: [
-        "Personal consultations with Ria",
-        "Customized subconscious audit",
-        "Tailored healing music protocol",
-        "Ongoing mentorship & feedback",
-        "Priority access to new releases",
+        "Personalized subconscious audit",
+        "Custom sleep protocol with Ria",
+        "One-on-one strategy sessions",
+        "Tailored healing track library",
+        "Priority mentorship access",
       ],
       highlight: false,
       badge: "PREMIUM",
@@ -974,113 +976,92 @@ const HomePage = () => {
     <div className="min-h-screen bg-white text-gray-900">
       <SectionNavigator />
       <PurchaseNotification />
+      <PurchaseNotification />
       <ExitPopup isOpen={showExitPopup} onClose={() => setShowExitPopup(false)} />
 
-      {/* HERO SECTION */}
+      {/* HERO SECTION — NOW LEADING WITH SLEEP */}
       <section
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center px-4 pt-32 pb-20 overflow-hidden bg-gradient-to-b from-purple-50 via-pink-50 to-white"
+        className="relative min-h-screen flex items-center justify-center px-4 pt-32 pb-20 overflow-hidden bg-white"
       >
         <VerticalLinesBackground />
         <WaveBackground />
         <div className="container-custom max-w-5xl text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-purple-100/80 backdrop-blur-sm border border-purple-200 rounded-full px-6 py-2 mb-8"
-          >
-            <Brain className="w-4 h-4 text-purple-600" />
-            <span className="text-sm font-semibold text-purple-700 uppercase tracking-widest">
-              Psychologist-Designed • Science-Backed • Ethical Manifestation
-            </span>
-          </motion.div>
-
-          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-serif font-bold leading-[1] mb-10 tracking-tight"
+            transition={{ duration: 0.8 }}
           >
-            Where Psychology <br />
-            <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent italic">
-              Meets Sound Healing.
-            </span>
-          </motion.h1>
+            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-bold text-gray-950 mb-10 leading-[1] tracking-tight">
+              Manifest While <br />
+              <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 bg-clip-text text-transparent italic">
+                You Sleep.
+              </span>
+            </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
-          >
-            Specially engineered manifestation &amp; healing music that rewires your subconscious mind.
-            Designed by a trained psychologist.
-          </motion.p>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light mb-16">
+              Manifest faster overnight with psychologist-designed calming music. No rituals. No overthinking. Just press play and wake up aligned.
+            </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
-          >
-            <motion.button
-              onClick={() => navigate('/free-gift')}
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-              className="bg-gradient-to-r from-purple-600 to-purple-800 text-white font-bold py-5 px-8 rounded-full transition-all duration-500 hover:shadow-purple-200 hover:shadow-2xl flex items-center justify-center gap-3 text-base md:text-lg"
-            >
-              <Headphones size={22} className="animate-pulse" />
-              Experience the Free Track
-            </motion.button>
-            <motion.button
-              onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-              className="border-2 border-purple-200 text-purple-700 font-bold py-5 px-10 rounded-full hover:border-purple-400 hover:bg-purple-50 transition-all duration-300 flex items-center justify-center gap-3 text-lg"
-            >
-              Explore Packages <ArrowRight size={18} />
-            </motion.button>
-          </motion.div>
-
-          {/* Social proof strip */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-500"
-          >
-            <div className="flex -space-x-2">
-              {["https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
-                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
-                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
-              ].map((url, i) => (
-                <img key={i} src={url} className="w-9 h-9 rounded-full border-2 border-white object-cover shadow-sm" alt="" />
+            <div className="grid sm:grid-cols-3 gap-6 text-left max-w-4xl mx-auto mb-20">
+              {[
+                { icon: <Clock className="w-5 h-5" />, title: "Sleep Smarter", desc: "No extra time needed — change happens while you rest." },
+                { icon: <Brain className="w-5 h-5" />, title: "Subconscious Access", desc: "Reach the layers of the mind where your deepest beliefs are stored." },
+                { icon: <Shield className="w-5 h-5" />, title: "Zero Resistance", desc: "Bypass your conscious filter while you're offline." }
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 + i * 0.1 }}
+                  className="p-6 rounded-3xl bg-white border border-purple-50 shadow-xl shadow-purple-500/5"
+                >
+                  <div className="text-purple-600 mb-4 bg-purple-50 w-10 h-10 rounded-xl flex items-center justify-center">{item.icon}</div>
+                  <h4 className="font-bold text-gray-900 text-sm mb-2">{item.title}</h4>
+                  <p className="text-xs text-gray-500 leading-relaxed font-light">{item.desc}</p>
+                </motion.div>
               ))}
             </div>
-            <span><strong className="text-gray-800">10,000+</strong> people have started their journey</span>
-            <span className="hidden sm:block text-gray-300">|</span>
-            <span className="flex items-center gap-1">
-              {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-amber-400 fill-amber-400" />)}
-              <span className="ml-1">Psychology-backed</span>
-            </span>
-          </motion.div>
 
-          <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="mt-16 flex justify-center">
-            <ChevronDown className="text-purple-300" size={32} />
+            <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="mt-8 flex justify-center">
+              <ChevronDown className="text-purple-300" size={32} />
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* PROBLEM / POSITIONING */}
-      <section className="py-14 md:py-20 px-4 bg-white">
-        <div className="container-custom max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-serif font-bold mb-10 text-gray-900 leading-tight italic">
-            "Why does manifestation never seem to work?"
+      {/* PROBLEM / POSITIONING — UPDATED WITH ORIGINAL HERO HOOK */}
+      <section className="py-14 md:py-24 px-4 bg-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-100 to-transparent" />
+        <div className="container-custom max-w-5xl mx-auto text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 bg-purple-50 border border-purple-100 rounded-full px-6 py-2 mb-10"
+          >
+            <Zap className="w-4 h-4 text-purple-600" />
+            <span className="text-xs font-black text-purple-700 uppercase tracking-[0.2em]">
+              Psychologist-Designed • Science-Backed • Ethical Manifestation
+            </span>
+          </motion.div>
+
+          <h2 className="text-4xl md:text-7xl font-serif font-bold mb-10 text-gray-900 leading-[1.1] tracking-tight">
+            Where Psychology <br />
+            <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent italic">
+              Meets Sound Healing.
+            </span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-500 mb-12 font-light leading-relaxed">
-            It's not because you're doing it wrong. It's because most methods work <em>against</em> how your mind actually functions.<br />
-            <span className="text-purple-600 font-bold not-italic">Ria's approach works with your subconscious — not over it.</span>
+
+          <p className="text-xl md:text-3xl text-gray-500 mb-12 font-light leading-relaxed max-w-4xl mx-auto italic">
+            "Why does manifestation never seem to work?"
           </p>
+
+          <p className="text-lg md:text-xl text-gray-500 mb-12 font-light leading-relaxed max-w-3xl mx-auto">
+            It's not because you're doing it wrong. It's because most methods work <em>against</em> how your mind actually functions.
+            Ria's approach works <span className="text-purple-600 font-bold not-italic">with your subconscious</span> — not over it.
+          </p>
+
           <div className="flex justify-center"><div className="w-24 h-px bg-purple-100" /></div>
         </div>
       </section>
