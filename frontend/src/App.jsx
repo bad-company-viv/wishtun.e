@@ -9,9 +9,6 @@ import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
 import Navbar from "./components/NavbarNew"; // Using the NEW premium version
 import Footer from "./components/Footer";
-import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
-import RefundPolicy from "./pages/legal/RefundPolicy";
-import TermsConditions from "./pages/legal/TermsConditions";
 import { CartProvider } from "./context/CartContext";
 import CartDrawer from "./components/CartDrawer";
 
@@ -46,9 +43,6 @@ function App() {
           <Route path="/product/:id" element={<ProductDetailPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/refund-policy" element={<RefundPolicy />} />
-          <Route path="/terms-conditions" element={<TermsConditions />} />
         </Route>
 
         {/* High-Converting Funnel Pages (Minimal distractions) */}

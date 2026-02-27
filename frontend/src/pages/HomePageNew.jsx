@@ -2,14 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import {
   motion,
   useInView,
-  useSpring,
-  useMotionValue,
-  useScroll,
-  useTransform,
   AnimatePresence,
 } from "framer-motion";
 import {
-  PlayCircle,
   ArrowRight,
   Sparkles,
   Zap,
@@ -18,107 +13,29 @@ import {
   ChevronDown,
   Check,
   X,
-  ShoppingBag,
   Music,
   Heart,
-  TrendingUp,
   Award,
   Brain,
   Clock,
   Gift,
   Lock,
-  FlaskConical,
   Activity,
-  Moon,
-  Sun,
   UserCheck,
   UserX,
   Headphones,
-  Timer,
+
   Plus,
+  Phone,
+  MessageCircle,
+  Layers,
+  BookOpen,
+  Mic2,
+  ScrollText,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext";
 
-// Audio Preview Component
-const AudioPreview = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef(null);
 
-  const togglePlay = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
-
-  return (
-    <div className="fixed bottom-28 right-8 z-[90] md:bottom-32">
-      <motion.div
-        initial={{ scale: 0, rotate: -20 }}
-        animate={{ scale: 1, rotate: 0 }}
-        whileHover={{ scale: 1.1 }}
-        className="relative"
-      >
-        <button
-          onClick={togglePlay}
-          className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full shadow-2xl flex items-center justify-center border-4 border-purple-100 group overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-          {isPlaying ? (
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ repeat: Infinity, duration: 1 }}
-              className="text-purple-600"
-            >
-              <Activity size={32} />
-            </motion.div>
-          ) : (
-            <PlayCircle size={32} className="text-purple-600 group-hover:scale-110 transition-transform" />
-          )}
-        </button>
-        {/* <audio
-          ref={audioRef}
-          src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" // Placeholder audio
-          onEnded={() => setIsPlaying(false)}
-        /> */}
-        <div className="absolute -top-2 -right-2 bg-pink-500 text-white text-[10px] font-black px-2 py-1 rounded-full shadow-lg animate-bounce">
-          PREVIEW
-        </div>
-      </motion.div>
-    </div>
-  );
-};
-
-// Countdown Timer Component
-const CountdownTimer = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    hours: 0,
-    minutes: 9,
-    seconds: 42
-  });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
-        if (prev.minutes > 0) return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        if (prev.hours > 0) return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        return prev;
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <div className="flex items-center gap-2 font-mono text-purple-600 font-bold bg-purple-50 px-3 py-1 rounded-lg border border-purple-100">
-      <Timer size={14} className="animate-pulse" />
-      <span>{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}</span>
-    </div>
-  );
-};
 
 // Vertical Lines Background Component
 const VerticalLinesBackground = () => (
@@ -127,15 +44,8 @@ const VerticalLinesBackground = () => (
       <motion.div
         key={i}
         initial={{ height: 0, opacity: 0 }}
-        animate={{
-          height: ["0%", "100%", "100%"],
-          opacity: [0, 0.6, 0.3],
-        }}
-        transition={{
-          duration: 2,
-          delay: i * 0.03,
-          ease: "easeOut",
-        }}
+        animate={{ height: ["0%", "100%", "100%"], opacity: [0, 0.6, 0.3] }}
+        transition={{ duration: 2, delay: i * 0.03, ease: "easeOut" }}
         className="absolute w-px bg-gradient-to-b from-transparent via-purple-300 to-pink-200"
         style={{ left: `${(i / 40) * 100}%` }}
       />
@@ -143,109 +53,70 @@ const VerticalLinesBackground = () => (
   </div>
 );
 
-// Sticky Purchase Bar Component
-const StickyPurchaseBar = ({ isVisible }) => {
-  return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-xl border-t border-purple-100 px-4 py-3 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
-        >
-          <div className="container-custom max-w-6xl">
-            <div className="flex items-center justify-between gap-3 rounded-2xl border border-purple-100 bg-white px-3 py-2 shadow-sm md:gap-6 md:px-5 md:py-3">
-              <div className="hidden md:flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl overflow-hidden shadow-md">
-                  <img src="/images/sleep-mixtape.png" alt="Product" className="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900 leading-tight">The Sleep Mixtape</p>
-                  <p className="text-xs text-purple-600 font-bold uppercase tracking-widest">Flagship Offer</p>
-                </div>
-              </div>
+// Wave Background Component
+const WaveBackground = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-80 z-0">
+    {[...Array(3)].map((_, i) => (
+      <motion.div
+        key={i}
+        className="absolute w-[200%] h-[200%] left-[-50%] top-[-50%]"
+        style={{ border: "1px solid rgba(147, 51, 234, 0.3)", borderRadius: "40%", transform: "translateZ(0)" }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 15 + i * 5, repeat: Infinity, ease: "linear", delay: i * -5 }}
+      />
+    ))}
+    <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wave-grad-home" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="rgba(147, 51, 234, 0)" />
+          <stop offset="50%" stopColor="rgba(147, 51, 234, 0.5)" />
+          <stop offset="100%" stopColor="rgba(147, 51, 234, 0)" />
+        </linearGradient>
+      </defs>
+      {[...Array(5)].map((_, i) => (
+        <motion.path
+          key={`wave-${i}`}
+          d="M0,50 C150,150 350,0 500,50 C650,100 850,-50 1000,50 V100 H0 V50 Z"
+          fill="none"
+          stroke="url(#wave-grad-home)"
+          strokeWidth="2"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{
+            d: ["M0,50 C150,150 350,0 500,50 C650,100 850,-50 1000,50", "M0,50 C150,-50 350,100 500,50 C650,0 850,150 1000,50"],
+            pathLength: 1,
+            opacity: [0.4, 1, 0.4]
+          }}
+          transition={{ duration: 8 + i, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: i * 0.5 }}
+          className="w-full h-full"
+          style={{ transform: `scaleY(${0.8 + i * 0.3}) translateY(${i * 25}px)`, transformOrigin: "center" }}
+        />
+      ))}
+    </svg>
+  </div>
+);
 
-              <div className="flex-1 md:flex-none flex items-center justify-between md:justify-end gap-4 md:gap-7">
-                <div className="hidden sm:block">
-                  <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1 text-center md:text-right">Offer Ends In</p>
-                  <CountdownTimer />
-                </div>
-                <div className="text-left md:text-right">
-                  <p className="text-[10px] text-gray-400 font-black uppercase tracking-tighter line-through">₹5,999</p>
-                  <p className="text-2xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">₹2,499</p>
-                </div>
-                <motion.button
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.96 }}
-                  onClick={() => window.open('https://riagupta.com/product/sleep-mixtape/', '_blank')}
-                  className="bg-gradient-to-r from-purple-600 to-purple-800 text-white font-black px-6 py-3 md:px-8 md:py-4 rounded-2xl shadow-xl shadow-purple-100 flex items-center gap-2 whitespace-nowrap text-sm md:text-base"
-                >
-                  SECURE ACCESS <ArrowRight size={18} />
-                </motion.button>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-};
-
-// Purchase Notification Component
+// Purchase Notification Component (updated for healing music context)
 const PurchaseNotification = () => {
   const [notification, setNotification] = useState(null);
   const notifications = [
-    {
-      name: "Rahul S.",
-      location: "Mumbai",
-      tape: "Sleep Mixtape",
-      time: "42 seconds ago",
-    },
-    {
-      name: "Ananya K.",
-      location: "Bangalore",
-      tape: "Sleep Reset Bundle",
-      time: "2 minutes ago",
-    },
-    {
-      name: "Vikram R.",
-      location: "Delhi",
-      tape: "Sleep Mixtape",
-      time: "15 seconds ago",
-    },
-    {
-      name: "Sarah J.",
-      location: "London",
-      tape: "Deep Sleep Protocol",
-      time: "1 minute ago",
-    },
-    {
-      name: "Priya M.",
-      location: "Dubai",
-      tape: "Sleep Mixtape",
-      time: "5 minutes ago",
-    },
+    { name: "Priya S.", location: "Mumbai", action: "started her healing journey", time: "2 minutes ago" },
+    { name: "Ananya K.", location: "Bangalore", action: "booked a discovery call", time: "5 minutes ago" },
+    { name: "Meera R.", location: "Delhi", action: "downloaded the free track", time: "1 minute ago" },
+    { name: "Divya M.", location: "Pune", action: "joined the Core Package", time: "8 minutes ago" },
+    { name: "Sunaina T.", location: "Hyderabad", action: "started her healing journey", time: "3 minutes ago" },
   ];
-
   useEffect(() => {
     const interval = setInterval(() => {
-      const random =
-        notifications[Math.floor(Math.random() * notifications.length)];
+      const random = notifications[Math.floor(Math.random() * notifications.length)];
       setNotification(random);
       setTimeout(() => setNotification(null), 5000);
     }, 15000);
     return () => clearInterval(interval);
   }, []);
-
   return (
     <motion.div
       initial={{ opacity: 0, x: -50, scale: 0.9 }}
-      animate={
-        notification
-          ? { opacity: 1, x: 20, scale: 1 }
-          : { opacity: 0, x: -50, scale: 0.9 }
-      }
+      animate={notification ? { opacity: 1, x: 20, scale: 1 } : { opacity: 0, x: -50, scale: 0.9 }}
       className="fixed bottom-8 left-0 z-50 pointer-events-none"
     >
       {notification && (
@@ -255,22 +126,12 @@ const PurchaseNotification = () => {
           </div>
           <div>
             <p className="text-sm font-bold text-gray-900">
-              {notification.name}{" "}
-              <span className="font-normal text-gray-500">
-                from {notification.location}
-              </span>
+              {notification.name} <span className="font-normal text-gray-500">from {notification.location}</span>
             </p>
-            <p className="text-xs text-purple-600 font-medium">
-              Bought {notification.tape}
-            </p>
-            <p className="text-[10px] text-gray-400 mt-0.5">
-              {notification.time}
-            </p>
+            <p className="text-xs text-purple-600 font-medium">{notification.action}</p>
+            <p className="text-[10px] text-gray-400 mt-0.5">{notification.time}</p>
           </div>
-          <button
-            onClick={() => setNotification(null)}
-            className="ml-2 text-gray-400 hover:text-gray-600 shrink-0"
-          >
+          <button onClick={() => setNotification(null)} className="ml-2 text-gray-400 hover:text-gray-600 shrink-0">
             <X size={14} />
           </button>
         </div>
@@ -282,63 +143,42 @@ const PurchaseNotification = () => {
 // Exit Intent Popup Component
 const ExitPopup = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
-
   return (
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="absolute inset-0 bg-black/60 backdrop-blur-md"
-          />
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} className="absolute inset-0 bg-black/60 backdrop-blur-md" />
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             className="relative w-full max-w-xl bg-white rounded-[3rem] overflow-hidden shadow-2xl p-8 md:p-12 text-center"
           >
-            <button
-              onClick={onClose}
-              className="absolute top-6 right-6 p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
-            >
+            <button onClick={onClose} className="absolute top-6 right-6 p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
               <X size={20} />
             </button>
-
             <div className="mb-8 flex justify-center">
               <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center">
                 <Gift className="w-10 h-10 text-purple-600 animate-bounce" />
               </div>
             </div>
-
             <h2 className="text-3xl md:text-5xl font-serif font-bold text-gray-900 mb-4 leading-tight">
-              Wait! Don't Go <br /><span className="italic text-purple-600">Empty Handed.</span>
+              Before You Go —<br /><span className="italic text-purple-600">Experience This Free.</span>
             </h2>
-
             <p className="text-gray-500 mb-10 text-lg font-light leading-relaxed">
-              I have a special gift for you—a 10-minute <strong>Manifestation Track</strong> to help you shift your mood instantly.
+              A 10-minute <strong>Manifestation Track</strong> — psychologist-designed to shift your subconscious state instantly.
             </p>
-
             <div className="space-y-4">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => {
-                  onClose();
-                  navigate('/free-gift');
-                }}
+                onClick={() => { onClose(); navigate('/free-gift'); }}
                 className="w-full bg-gradient-to-r from-purple-600 to-purple-800 text-white font-bold py-6 rounded-full shadow-xl shadow-purple-200 flex items-center justify-center gap-3 text-xl tracking-widest"
               >
-                CLAIM MY FREE GIFT <Sparkles size={20} />
+                GET MY FREE TRACK <Sparkles size={20} />
               </motion.button>
-
-              <button
-                onClick={onClose}
-                className="text-gray-400 text-xs font-bold uppercase tracking-widest hover:text-gray-600 transition-colors"
-              >
-                No thanks, I'll pass on the free track
+              <button onClick={onClose} className="text-gray-400 text-xs font-bold uppercase tracking-widest hover:text-gray-600 transition-colors">
+                No thanks, I'll pass on experiencing it
               </button>
             </div>
           </motion.div>
@@ -348,43 +188,44 @@ const ExitPopup = ({ isOpen, onClose }) => {
   );
 };
 
-// 3-Step Journey Component
-const JourneySection = () => {
-  const steps = [
+// Science Education Section — NEW (TOFU Phase 1)
+const ScienceSection = () => {
+  const pillars = [
     {
-      icon: <Headphones className="w-8 h-8" />,
-      title: "Press Play",
-      description: "No complex rituals or 5 AM wake-up calls. Just put on your headphones as you get into bed.",
+      icon: <Brain className="w-8 h-8" />,
+      title: "Psychology-Grounded",
+      description: "Designed by a trained psychologist, every track is rooted in how the subconscious mind actually processes and stores new beliefs.",
       color: "bg-purple-100 text-purple-600"
     },
     {
-      icon: <Moon className="w-8 h-8" />,
-      title: "Drift Away",
-      description: "Our proprietary 432Hz 'Audio Alchemy' works while your conscious mind sleeps, bypassing all resistance.",
+      icon: <Layers className="w-8 h-8" />,
+      title: "Layered Audio Architecture",
+      description: "Affirmations and manifestations are embedded beneath the music — accessible to your subconscious, not your conscious resistance.",
       color: "bg-pink-100 text-pink-600"
     },
     {
-      icon: <Sun className="w-8 h-8" />,
-      title: "Wake Up Refined",
-      description: "Wake up with a new subconscious blueprint. Start your day with clarity, confidence, and magnetic energy.",
-      color: "bg-amber-100 text-amber-600"
-    }
+      icon: <Activity className="w-8 h-8" />,
+      title: "Scientifically-Informed",
+      description: "Sound frequencies, binaural principles, and neuro-acoustic layering work together to guide your mind into receptive states.",
+      color: "bg-indigo-100 text-indigo-600"
+    },
   ];
 
   return (
-    <section className="py-24 md:py-32 px-4 bg-gray-50/50">
+    <section className="py-14 md:py-20 px-4 bg-white">
       <div className="container-custom max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900 italic">
-            Manifestation on <span className="text-purple-600">Autopilot</span>
+          <span className="text-purple-600 uppercase tracking-[0.2em] text-sm font-bold mb-4 block">The Science</span>
+          <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900 leading-tight">
+            Why This Music <span className="italic text-purple-600">Works Differently</span>
           </h2>
-          <p className="text-xl text-gray-500 max-w-2xl mx-auto font-light">
-            Three simple steps to bridge the gap between where you are and where you want to be.
+          <p className="text-xl text-gray-500 max-w-3xl mx-auto font-light leading-relaxed">
+            This isn't background music. It's a precision-designed tool for subconscious transformation — built at the intersection of psychology, sound engineering, and mindset science.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {steps.map((step, i) => (
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          {pillars.map((pillar, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
@@ -396,11 +237,525 @@ const JourneySection = () => {
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center font-serif font-bold text-xl text-purple-600 border border-purple-50">
                 0{i + 1}
               </div>
-              <div className={`w-16 h-16 ${step.color} rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500`}>
-                {step.icon}
+              <div className={`w-16 h-16 ${pillar.color} rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500`}>
+                {pillar.icon}
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">{step.title}</h3>
-              <p className="text-gray-500 leading-relaxed font-light">{step.description}</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{pillar.title}</h3>
+              <p className="text-gray-500 leading-relaxed font-light">{pillar.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* What is subconscious reprogramming */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-[3rem] p-10 md:p-16 border border-purple-100"
+        >
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="text-purple-600 uppercase tracking-[0.2em] text-sm font-bold mb-4 block">Understanding The Process</span>
+              <h3 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6 leading-tight">
+                What is Subconscious Reprogramming?
+              </h3>
+              <div className="space-y-5 text-gray-600 font-light leading-relaxed text-lg">
+                <p>Your subconscious mind runs 95% of your daily behaviour — beliefs, habits, emotional patterns — all operating beneath your awareness.</p>
+                <p>Most people try to change through willpower alone, working against their own subconscious programming. <span className="text-purple-700 font-semibold">That's why it doesn't stick.</span></p>
+                <p>Ria's music bypasses the critical conscious mind and speaks directly to the subconscious — during relaxed, receptive states where real change happens.</p>
+              </div>
+            </div>
+            <div className="space-y-4">
+              {[
+                { label: "Conscious Mind", pct: 5, color: "bg-gray-300", desc: "Where effort and willpower live" },
+                { label: "Subconscious Mind", pct: 95, color: "bg-gradient-to-r from-purple-500 to-pink-500", desc: "Where beliefs, habits & identity live" },
+              ].map((item, i) => (
+                <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-purple-50">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-bold text-gray-900">{item.label}</span>
+                    <span className="font-black text-purple-600 text-xl">{item.pct}%</span>
+                  </div>
+                  <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden mb-2">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${item.pct}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, delay: i * 0.3 }}
+                      className={`h-full ${item.color} rounded-full`}
+                    />
+                  </div>
+                  <p className="text-sm text-gray-500">{item.desc}</p>
+                </div>
+              ))}
+              <p className="text-sm text-center text-purple-600 font-semibold pt-2">
+                ✦ Ria's music reaches where traditional methods can't
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+// 4-Phase Journey Section (replaces 3-step "press play")
+const FunnelJourneySection = () => {
+  const phases = [
+    {
+      number: "01",
+      phase: "Awareness",
+      title: "Understand What's Possible",
+      description: "Learn how subconscious programming, sound healing, and layered audio actually work. Education first — curiosity before commitment.",
+      icon: <BookOpen className="w-8 h-8" />,
+      color: "from-purple-100 to-purple-50",
+      accent: "text-purple-600",
+      border: "border-purple-200"
+    },
+    {
+      number: "02",
+      phase: "Trust",
+      title: "Experience Before You Decide",
+      description: "Download a free track. Feel the shift. Experience Ria's work before making any decisions — trust built through experience, not promises.",
+      icon: <Headphones className="w-8 h-8" />,
+      color: "from-pink-100 to-pink-50",
+      accent: "text-pink-600",
+      border: "border-pink-200"
+    },
+    {
+      number: "03",
+      phase: "Explore",
+      title: "Find What Fits You",
+      description: "From the core healing music package to guided coaching sessions — choose the depth that matches where you are on your journey.",
+      icon: <Layers className="w-8 h-8" />,
+      color: "from-indigo-100 to-indigo-50",
+      accent: "text-indigo-600",
+      border: "border-indigo-200"
+    },
+    {
+      number: "04",
+      phase: "Transform",
+      title: "Long-Term Subconscious Shift",
+      description: "Consistent listening rewires your baseline — clarity, confidence, and a new identity that reflects what you're actually capable of.",
+      icon: <Sparkles className="w-8 h-8" />,
+      color: "from-amber-100 to-amber-50",
+      accent: "text-amber-600",
+      border: "border-amber-200"
+    },
+  ];
+
+  return (
+    <section className="py-14 md:py-20 px-4 bg-gray-50/50">
+      <div className="container-custom max-w-6xl">
+        <div className="text-center mb-16">
+          <span className="text-purple-600 uppercase tracking-[0.2em] text-sm font-bold mb-4 block">Your Journey</span>
+          <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900 italic">
+            Transformation in <span className="text-purple-600">Four Phases</span>
+          </h2>
+          <p className="text-xl text-gray-500 max-w-2xl mx-auto font-light">
+            From curiosity to credibility to conversion — we don't rush this. Real change takes the right sequence.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {phases.map((phase, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15 }}
+              className={`bg-gradient-to-b ${phase.color} p-8 rounded-[2.5rem] border ${phase.border} relative group hover:shadow-xl transition-all duration-500`}
+            >
+              <div className={`text-6xl font-black ${phase.accent} opacity-20 absolute top-6 right-6 font-serif leading-none`}>
+                {phase.number}
+              </div>
+              <div className={`w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 ${phase.accent} shadow-sm group-hover:scale-110 transition-transform duration-500`}>
+                {phase.icon}
+              </div>
+              <span className={`text-xs font-black uppercase tracking-widest ${phase.accent} mb-2 block`}>{phase.phase}</span>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">{phase.title}</h3>
+              <p className="text-gray-500 leading-relaxed font-light text-sm">{phase.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Connecting arrow line */}
+        <div className="hidden lg:flex items-center mt-8 text-gray-400 text-sm font-medium">
+          <span className="shrink-0">Start here</span>
+          <div className="flex-1 h-px bg-gradient-to-r from-purple-200 via-pink-200 to-amber-200 mx-4" />
+          <span className="shrink-0">Grow here</span>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Qualification Section (updated for psychology/coaching context)
+const QualificationSection = () => (
+  <section className="py-14 md:py-20 px-4 bg-white overflow-hidden">
+    <div className="container-custom max-w-6xl">
+      <div className="text-center mb-20">
+        <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900">
+          Is This <span className="italic text-purple-600">Right For You?</span>
+        </h2>
+      </div>
+      <div className="grid md:grid-cols-2 gap-8">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="bg-green-50/50 p-10 md:p-12 rounded-[3rem] border border-green-100"
+        >
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+              <UserCheck size={28} />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 uppercase tracking-tight">This is for you if...</h3>
+          </div>
+          <ul className="space-y-6">
+            {[
+              "You're curious about the link between psychology, music, and mindset change.",
+              "You want science-backed, ethically positioned tools — not generic 'law of attraction' content.",
+              "You feel stuck in patterns that willpower alone can't seem to break.",
+              "You're open to a long-term, education-led approach to transformation.",
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-4">
+                <Check size={20} className="text-green-500 shrink-0 mt-1" />
+                <span className="text-gray-700 font-medium leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="bg-red-50/50 p-10 md:p-12 rounded-[3rem] border border-red-100"
+        >
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600">
+              <UserX size={28} />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 uppercase tracking-tight">This is NOT for you if...</h3>
+          </div>
+          <ul className="space-y-6">
+            {[
+              "You're looking for an overnight miracle or instant results without any consistency.",
+              "You want generic affirmations or unscientific 'good vibes only' content.",
+              "You aren't willing to give the process time — real subconscious shift takes 21+ days.",
+              "You're not open to understanding the psychology behind the tools you use.",
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-4">
+                <X size={20} className="text-red-400 shrink-0 mt-1" />
+                <span className="text-gray-600 font-medium leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      </div>
+    </div>
+  </section>
+);
+
+// Product Ladder Section (NEW — 3 tiers per MoM)
+const ProductLadderSection = () => {
+  const navigate = useNavigate();
+  const tiers = [
+    {
+      level: "Start Here",
+      title: "Free Manifestation Track",
+      subtitle: "10-Min Psychologist-Designed Audio",
+      description: "Experience Ria's work before anything else. A specially crafted track to shift your state and introduce you to subconscious healing music.",
+      price: "Free",
+      cta: "Download Free Track",
+      href: "/free-gift",
+      items: [
+        "10-minute healing music track",
+        "Instant digital delivery",
+        "No card required",
+        "Experience before you commit",
+      ],
+      highlight: false,
+      badge: "ENTRY POINT",
+      badgeColor: "bg-gray-100 text-gray-600",
+      btnClass: "border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white",
+    },
+    {
+      level: "Core Experience",
+      title: "Music + Guidance Package",
+      subtitle: "Healing Music & Coaching Sessions",
+      description: "The full experience — multi-layered healing music combined with Ria's guided coaching program to accelerate your subconscious transformation.",
+      price: "₹2,499",
+      originalPrice: "₹5,999",
+      cta: "Get the Core Package",
+      href: "https://riagupta.com/product/sleep-mixtape/",
+      items: [
+        "Full healing music library access",
+        "Layered affirmation architecture",
+        "Guided reprogramming sessions",
+        "21-day transformation roadmap",
+        "Dedicated support access",
+      ],
+      highlight: true,
+      badge: "MOST POPULAR",
+      badgeColor: "bg-purple-600 text-white",
+      btnClass: "bg-gradient-to-r from-purple-600 to-purple-800 text-white shadow-xl shadow-purple-200",
+    },
+    {
+      level: "Deep Dive",
+      title: "Premium Coaching",
+      subtitle: "1:1 with Ria Gupta",
+      description: "Work directly with Ria in a personalized coaching engagement. Psychology-led, experience-based, fully tailored to your specific patterns and goals.",
+      price: "Custom",
+      cta: "Book Discovery Call",
+      href: "#contact",
+      items: [
+        "Personal consultations with Ria",
+        "Customized subconscious audit",
+        "Tailored healing music protocol",
+        "Ongoing mentorship & feedback",
+        "Priority access to new releases",
+      ],
+      highlight: false,
+      badge: "PREMIUM",
+      badgeColor: "bg-amber-100 text-amber-700",
+      btnClass: "border-2 border-amber-500 text-amber-700 hover:bg-amber-500 hover:text-white",
+    },
+  ];
+
+  return (
+    <section id="packages" className="py-14 md:py-20 px-4 bg-[#f4f4f7]">
+      <div className="container-custom max-w-6xl">
+        <div className="text-center mb-16">
+          <span className="text-purple-600 uppercase tracking-[0.2em] text-sm font-bold mb-4 block">Choose Your Path</span>
+          <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900">
+            Start Where <span className="italic text-purple-600">You Are</span>
+          </h2>
+          <p className="text-xl text-gray-500 max-w-2xl mx-auto font-light">
+            Every journey begins with a single step. Explore the level that feels right — there's no pressure, only progress.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 items-stretch">
+          {tiers.map((tier, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15 }}
+              className={`relative bg-white rounded-[2.5rem] p-8 md:p-10 flex flex-col ${tier.highlight ? 'ring-2 ring-purple-600 shadow-2xl shadow-purple-100' : 'border border-purple-50 shadow-md'}`}
+            >
+              {tier.highlight && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <div className="bg-purple-600 text-white text-xs font-black uppercase tracking-widest px-5 py-2 rounded-full shadow-lg">
+                    ✦ Most Popular
+                  </div>
+                </div>
+              )}
+              <div className="mb-6">
+                <span className={`text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full ${tier.badgeColor} inline-block mb-4`}>
+                  {tier.badge}
+                </span>
+                <span className="text-purple-600 font-bold text-sm uppercase tracking-widest block mb-2">{tier.level}</span>
+                <h3 className="text-2xl font-bold text-gray-900 mb-1">{tier.title}</h3>
+                <p className="text-sm text-gray-500 mb-4">{tier.subtitle}</p>
+                <p className="text-gray-600 font-light leading-relaxed text-sm">{tier.description}</p>
+              </div>
+
+              <ul className="space-y-3 mb-8 flex-1">
+                {tier.items.map((item, j) => (
+                  <li key={j} className="flex items-start gap-3 text-sm text-gray-700">
+                    <Check size={16} className="text-purple-500 shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-auto">
+                <div className="mb-4">
+                  {tier.originalPrice && (
+                    <p className="text-gray-400 text-xs font-bold uppercase tracking-widest line-through mb-1">{tier.originalPrice}</p>
+                  )}
+                  <p className="text-4xl font-black text-gray-900">{tier.price}</p>
+                </div>
+                {tier.href.startsWith('http') ? (
+                  <a
+                    href={tier.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-full font-bold py-4 rounded-2xl flex items-center justify-center gap-2 text-base transition-all duration-300 ${tier.btnClass}`}
+                  >
+                    {tier.cta} <ArrowRight size={18} />
+                  </a>
+                ) : (
+                  <button
+                    onClick={() => tier.href === '#contact'
+                      ? document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })
+                      : navigate(tier.href)
+                    }
+                    className={`w-full font-bold py-4 rounded-2xl flex items-center justify-center gap-2 text-base transition-all duration-300 ${tier.btnClass}`}
+                  >
+                    {tier.cta} <ArrowRight size={18} />
+                  </button>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <p className="text-center text-gray-400 text-sm mt-10 font-light">
+          Not sure where to start? The free track is always the best first step. Trust the process.
+        </p>
+      </div>
+    </section>
+  );
+};
+
+// About Ria — Authority Section (updated to lead with Psychologist credentials)
+const AboutFounderSection = () => (
+  <section className="py-14 md:py-20 px-4 bg-white border-t border-purple-50">
+    <div className="container-custom max-w-6xl">
+      <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative order-last md:order-first"
+        >
+          <div className="absolute inset-0 bg-gradient-to-tr from-purple-200 to-pink-200 rounded-[2.5rem] blur-2xl opacity-60" />
+          <div className="relative rounded-[2.5rem] overflow-hidden border border-purple-100 shadow-2xl">
+            <img
+              src="/images/founder.jpeg"
+              alt="Ria Gupta — Psychologist & Music Producer"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+            {/* Credentials badge */}
+            <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur rounded-2xl p-4 shadow-xl border border-purple-50">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center shrink-0">
+                  <Award className="text-purple-600 w-5 h-5" />
+                </div>
+                <div>
+                  <p className="font-bold text-gray-900 text-sm">Ria Gupta</p>
+                  <p className="text-xs text-purple-600 font-semibold">Psychologist • Music Producer • Subconscious Reprogramming Expert</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="space-y-8 text-left"
+        >
+          <div>
+            <span className="text-purple-600 uppercase tracking-[0.2em] text-sm font-bold mb-4 block">Meet Ria Gupta</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-6 text-gray-900 font-bold">
+              Psychology meets <br /><span className="italic text-purple-600">Sound Healing.</span>
+            </h2>
+          </div>
+
+          <div className="space-y-5 text-lg text-gray-500 font-light leading-relaxed">
+            <p>Ria Gupta is a trained psychologist and music producer working at the intersection of psychology, sound healing, and subconscious reprogramming.</p>
+            <p>Her work combines <strong className="text-gray-700">scientifically-informed audio engineering</strong> with deep psychological understanding of how the mind processes and adopts new beliefs.</p>
+            <p>"Most manifestation content is too generic, too mystical, or too vague. I wanted to build something grounded — where the science is real and the results are verifiable."</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { icon: <Brain size={18} />, label: "Trained Psychologist" },
+              { icon: <Music size={18} />, label: "Music Producer" },
+              { icon: <Layers size={18} />, label: "Subliminal Audio Expert" },
+              { icon: <ScrollText size={18} />, label: "Manifestation Coach" },
+            ].map((cred, i) => (
+              <div key={i} className="flex items-center gap-3 text-sm text-gray-700 bg-purple-50 rounded-2xl px-4 py-3 font-medium">
+                <span className="text-purple-500">{cred.icon}</span>
+                {cred.label}
+              </div>
+            ))}
+          </div>
+
+          <div className="pt-4 border-l-4 border-purple-200 pl-6">
+            <a
+              href="https://riagupta.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-900 text-2xl font-serif font-bold mb-1 block hover:text-purple-600 transition-colors"
+            >
+              Ria Gupta
+            </a>
+            <p className="text-purple-600 italic font-medium">&mdash; Founder, Wishtune</p>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  </section>
+);
+
+// Experience Stories / Testimonials (renamed and reframed)
+const ExperienceStoriesSection = () => {
+  const stories = [
+    {
+      text: "I approached this skeptically — I'm not someone who believes in anything unproven. But the psychology behind it made sense. After 3 weeks of consistent listening, my anxiety baseline genuinely shifted. I feel calmer without trying.",
+      name: "Priya K.",
+      location: "Bangalore",
+      img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      tag: "21-day journey"
+    },
+    {
+      text: "I'm a psychology student, so when Ria explained the subconscious mechanism behind the music, I was genuinely impressed. The layering is real — you can feel the shift without consciously hearing it. This is genuinely different from everything else.",
+      name: "Shreya M.",
+      location: "Delhi",
+      img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      tag: "Core Package"
+    },
+    {
+      text: "A month of listening and I've stopped waking up with that familiar sense of dread. I don't know exactly how to explain it — but something fundamental has changed. I'm more decisive, less reactive. Highly recommend starting with the free track.",
+      name: "Ananya R.",
+      location: "Mumbai",
+      img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      tag: "Free track → Core Package"
+    },
+  ];
+
+  return (
+    <section className="py-14 md:py-20 px-4 bg-white border-y border-gray-50">
+      <div className="container-custom max-w-6xl">
+        <div className="text-center mb-20">
+          <span className="text-purple-600 uppercase tracking-[0.2em] text-sm font-bold mb-4 block">Experience Stories</span>
+          <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900">
+            Their Journey, <span className="italic">in Their Words</span>
+          </h2>
+          <p className="text-lg text-gray-400 font-light">Experience over claims. Impact over promises.</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-10">
+          {stories.map((story, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-purple-50/50 p-10 rounded-[2.5rem] relative"
+            >
+              <span className="absolute top-6 right-6 text-xs font-bold uppercase tracking-widest text-purple-400 bg-purple-100 px-3 py-1 rounded-full">
+                {story.tag}
+              </span>
+              <div className="text-purple-200 text-6xl font-serif leading-none mb-4">"</div>
+              <p className="text-gray-700 italic text-base leading-relaxed mb-8 font-light">{story.text}</p>
+              <div className="flex items-center gap-5">
+                <img src={story.img} className="w-14 h-14 rounded-full border-2 border-purple-200 shadow-md" alt={story.name} />
+                <div>
+                  <p className="font-bold text-gray-900 text-lg">{story.name}</p>
+                  <p className="text-xs uppercase text-purple-600 font-bold tracking-widest">{story.location}</p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -409,452 +764,215 @@ const JourneySection = () => {
   );
 };
 
-// Qualification Section Component
-const QualificationSection = () => {
-  return (
-    <section className="py-24 md:py-32 px-4 bg-white overflow-hidden">
-      <div className="container-custom max-w-6xl">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900">
-            Is Wishtune <span className="italic text-purple-600">Right For You?</span>
-          </h2>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* This is for you if... */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-green-50/50 p-10 md:p-12 rounded-[3rem] border border-green-100"
-          >
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                <UserCheck size={28} />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 uppercase tracking-tight">This is for you if...</h3>
-            </div>
-            <ul className="space-y-6">
-              {[
-                "You find traditional meditation difficult, boring, or impossible to stick to.",
-                "You're tired of 'trying' to manifest without seeing real-world results.",
-                "You have a busy life and need a success ritual that takes ZERO extra time.",
-                "You want to clear subconscious blocks like anxiety, lack, or self-doubt effortlessly."
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  <Check size={20} className="text-green-500 shrink-0 mt-1" />
-                  <span className="text-gray-700 font-medium leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* This is NOT for you if... */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-red-50/50 p-10 md:p-12 rounded-[3rem] border border-red-100"
-          >
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600">
-                <UserX size={28} />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 uppercase tracking-tight">This is NOT for you if...</h3>
-            </div>
-            <ul className="space-y-6">
-              {[
-                "You're looking for an overnight miracle without the patience for a 21-day shift.",
-                "You prefer complex rituals, expensive seminars, and long spiritual practices.",
-                "You are unwilling to wear headphones for at least 15 minutes before sleep.",
-                "You aren't ready to let go of the old versions of yourself that are holding you back."
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  <X size={20} className="text-red-400 shrink-0 mt-1" />
-                  <span className="text-gray-600 font-medium leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// Comparison Section Component
-const ComparisonSection = () => {
-  const comparisons = [
+// Social Bridge Section — drives visitors to Instagram/YouTube
+const SocialBridgeSection = () => {
+  const topics = [
     {
-      feature: "Audio Quality",
-      wishtune: "Lossless 432Hz Alchemy",
-      youtube: "Compressed MP3/AAC",
+      label: "How the Subconscious Mind Works",
+      platform: "Instagram",
+      color: "bg-purple-50 border-purple-100",
+      text: "text-purple-600",
+      emoji: "🧠",
     },
     {
-      feature: "Binaural Beats",
-      wishtune: "Phase-Synced Engineering",
-      youtube: "Unstable Phase Shifts",
+      label: "The Science of Manifestation",
+      platform: "YouTube",
+      color: "bg-red-50 border-red-100",
+      text: "text-red-500",
+      emoji: "⚡",
     },
     {
-      feature: "Subconscious Layering",
-      wishtune: "Patent-Pending Affirmations",
-      youtube: "Basic Background Text",
+      label: "Sound Healing & Frequency Explained",
+      platform: "Instagram",
+      color: "bg-pink-50 border-pink-100",
+      text: "text-pink-600",
+      emoji: "🎵",
     },
     {
-      feature: "Ad Interruptions",
-      wishtune: "100% Ad-Free Forever",
-      youtube: "Frequent Distractions",
-    },
-    {
-      feature: "Sleep Mode",
-      wishtune: "Optimized Battery & Display",
-      youtube: "Requires Screen On (Standard)",
+      label: "21-Day Reprogramming Framework",
+      platform: "YouTube",
+      color: "bg-amber-50 border-amber-100",
+      text: "text-amber-600",
+      emoji: "📅",
     },
   ];
 
   return (
-    <section className="py-24 md:py-32 px-4 bg-white relative overflow-hidden">
-      <div className="container-custom max-w-5xl relative z-10">
+    <section className="py-14 md:py-20 px-4 bg-white">
+      <div className="container-custom max-w-5xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900 italic">
-            The Wishtune{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Difference
-            </span>
+          <span className="text-purple-600 uppercase tracking-[0.2em] text-xs font-bold mb-4 block">Keep Learning</span>
+          <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900">
+            Want to Go Deeper? <br />
+            <span className="italic text-purple-600">We Teach It All — Free.</span>
           </h2>
-          <p className="text-xl text-gray-500 max-w-2xl mx-auto">
-            Why free YouTube frequencies might actually be holding you back.
+          <p className="text-gray-400 font-light text-lg max-w-xl mx-auto">
+            Ria regularly shares psychology breakdowns, sound science explainers, and manifestation frameworks — follow along to build your foundation before you begin.
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-3xl border border-purple-100 shadow-xl bg-white">
-          <div className="grid grid-cols-3 bg-purple-50 border-b border-purple-100 py-6 px-6 md:px-12 font-bold text-gray-900">
-            <div>Feature</div>
-            <div className="text-purple-600 text-center">Wishtune</div>
-            <div className="text-gray-400 text-center">YouTube</div>
-          </div>
-          {comparisons.map((item, i) => (
-            <div
-              key={i}
-              className="grid grid-cols-3 py-6 px-6 md:px-12 border-b border-purple-50 hover:bg-purple-50/30 transition-colors"
-            >
-              <div className="font-medium text-gray-700">{item.feature}</div>
-              <div className="text-center text-gray-900 flex items-center justify-center gap-2">
-                <Check size={16} className="text-green-500 shrink-0" />
-                <span className="hidden md:inline">{item.wishtune}</span>
-              </div>
-              <div className="text-center text-gray-400 flex items-center justify-center gap-2">
-                <X size={16} className="text-red-400 shrink-0" />
-                <span className="hidden md:inline">{item.youtube}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="mt-12 text-center text-gray-400 text-sm">
-          *Based on neuro-acoustic research conducted on standard streaming
-          platforms.
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// Wave Background Component
-const WaveBackground = () => {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-80 z-0">
-      {[...Array(3)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-[200%] h-[200%] left-[-50%] top-[-50%]"
-          style={{
-            border: "1px solid rgba(147, 51, 234, 0.3)",
-            borderRadius: "40%",
-            transform: "translateZ(0)",
-          }}
-          animate={{
-            rotate: 360,
-          }}
-          transition={{
-            duration: 15 + i * 5,
-            repeat: Infinity,
-            ease: "linear",
-            delay: i * -5,
-          }}
-        />
-      ))}
-      <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="wave-grad-home" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="rgba(147, 51, 234, 0)" />
-            <stop offset="50%" stopColor="rgba(147, 51, 234, 0.5)" />
-            <stop offset="100%" stopColor="rgba(147, 51, 234, 0)" />
-          </linearGradient>
-        </defs>
-        {[...Array(5)].map((_, i) => (
-          <motion.path
-            key={`wave-${i}`}
-            d="M0,50 C150,150 350,0 500,50 C650,100 850,-50 1000,50 V100 H0 V50 Z"
-            fill="none"
-            stroke="url(#wave-grad-home)"
-            strokeWidth="2"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{
-              d: [
-                "M0,50 C150,150 350,0 500,50 C650,100 850,-50 1000,50",
-                "M0,50 C150,-50 350,100 500,50 C650,0 850,150 1000,50"
-              ],
-              pathLength: 1,
-              opacity: [0.4, 1, 0.4]
-            }}
-            transition={{
-              duration: 8 + i,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-              delay: i * 0.5
-            }}
+        {/* Featured Video Embed */}
+        <div className="mb-12 rounded-[2rem] overflow-hidden shadow-2xl shadow-purple-100/50 border border-purple-100 aspect-video w-full max-w-3xl mx-auto">
+          <iframe
+            src="https://www.youtube.com/embed/FIb4jmgb8go?rel=0&modestbranding=1"
+            title="Ria Gupta — Manifestation & Sound Healing"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
             className="w-full h-full"
-            style={{
-              transform: `scaleY(${0.8 + i * 0.3}) translateY(${i * 25}px)`,
-              transformOrigin: "center"
-            }}
           />
-        ))}
-      </svg>
-    </div>
-  );
-};
+        </div>
 
-// About Founder Section Component
-const AboutFounderSection = () => {
-  return (
-    <section className="py-24 md:py-32 px-4 bg-white border-t border-purple-50">
-      <div className="container-custom max-w-6xl">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image Section */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative order-last md:order-first"
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="https://www.instagram.com/riiagupta/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 text-white font-bold px-8 py-4 rounded-full hover:shadow-xl hover:shadow-pink-200 hover:scale-105 transition-all duration-300"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-purple-200 to-pink-200 rounded-[2.5rem] blur-2xl opacity-60" />
-            <div className="relative rounded-[2.5rem] overflow-hidden border border-purple-100 shadow-2xl">
-              <img
-                src="/images/founder.jpeg"
-                alt="Ria Gupta, Founder of Wishtune"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-          </motion.div>
-
-          {/* Content Section */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8 text-left"
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+            Follow on Instagram
+          </a>
+          <a
+            href="https://www.youtube.com/@manifestologywithria"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-white border-2 border-gray-200 text-gray-700 font-bold px-8 py-4 rounded-full hover:border-red-300 hover:text-red-600 hover:shadow-lg hover:shadow-red-100 hover:scale-105 transition-all duration-300"
           >
-            <div>
-              <span className="text-purple-600 uppercase tracking-[0.2em] text-sm font-bold mb-4 block">
-                The Philosophy
-              </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-6 text-gray-900 font-bold">
-                Manifestation shouldn't <br />
-                <span className="italic text-gray-400">feel like a chore.</span>
-              </h2>
-            </div>
-
-            <div className="space-y-6 text-lg text-gray-500 font-light leading-relaxed">
-              <p>
-                "I built Wishtune to blend real music with belief-focused audio
-                design. Most people fail at manifestation because it requires too
-                much conscious effort.
-              </p>
-              <p>
-                Wishtune bypasses the resistance by using the music you already
-                love to listen to."
-              </p>
-            </div>
-
-            <div className="pt-4 border-l-4 border-purple-200 pl-6">
-              <a
-                href="https://riagupta.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-900 text-2xl font-serif font-bold mb-1 block hover:text-purple-600 transition-colors"
-              >
-                Ria Gupta
-              </a>
-              <p className="text-purple-600 italic font-medium">
-                &mdash; Founder, Wishtune
-              </p>
-            </div>
-          </motion.div>
+            <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+            Watch on YouTube
+          </a>
         </div>
       </div>
     </section>
   );
 };
 
-
-// Bonus Stack Component
-const BonusStack = () => {
-  const bonuses = [
-    {
-      title: "Manifestation Roadmap",
-      value: "₹999",
-      description: "A PDF guide to help you set and achieve your 21-day goals.",
-      icon: <Gift size={18} />
-    },
-    {
-      title: "Morning Mood Shift",
-      value: "₹1,499",
-      description: "A 10-minute booster track for high-energy mornings.",
-      icon: <Zap size={18} />
-    },
-    {
-      title: "Lifetime Updates",
-      value: "Priceless",
-      description: "Never pay for newer versions or audio improvements.",
-      icon: <Sparkles size={18} />
-    }
-  ];
-
-  return (
-    <div className="mt-10 space-y-4">
-      <p className="text-xs font-black text-purple-600 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
-        <Plus size={14} /> Included Free Bonuses
-      </p>
-      {bonuses.map((bonus, i) => (
-        <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-purple-50/50 border border-purple-100/50">
-          <div className="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center text-purple-600 shrink-0">
-            {bonus.icon}
+// FAQ Section (updated)
+const FAQSection = () => (
+  <section className="py-14 md:py-20 px-4 bg-gray-50">
+    <div className="container-custom max-w-3xl mx-auto">
+      <h2 className="text-4xl md:text-6xl font-serif font-bold mb-16 text-center text-gray-900 italic">
+        Questions? We Have <span className="text-purple-600">Answers</span>
+      </h2>
+      <div className="space-y-8">
+        {[
+          { q: "Is there actual psychology behind this?", a: "Yes. Ria is a trained psychologist. Every element of the music — the layering, the affirmation placement, the frequency choices — is grounded in how the subconscious mind processes information during relaxed states. This is not generic wellness content." },
+          { q: "Will I consciously hear the affirmations?", a: "No — and that's intentional. The affirmations are layered beneath the music specifically to bypass your conscious defenses. Your logical mind would filter them out. Your subconscious, however, absorbs them during relaxed states." },
+          { q: "How long before I feel a difference?", a: "Most listeners report a subtle shift in mood and baseline anxiety within the first week. For deeper reprogramming — identity-level shifts — we recommend 21+ days of regular listening. This is a long-term investment in your subconscious baseline." },
+          { q: "What's the difference between music tiers?", a: "The free track is an experience — a taster to feel Ria's approach. The Core Package includes the full music library plus guided reprogramming sessions. Premium Coaching is a 1:1 engagement with Ria where everything is tailored to your specific patterns." },
+          { q: "Can I book a consultation first?", a: "Absolutely. In fact, we encourage it. A discovery call with Ria lets you understand whether her approach is right for you before any commitment. Use the 'Book a Discovery Call' button to start that conversation." },
+        ].map((faq, i) => (
+          <div key={i} className="bg-white p-8 rounded-3xl border border-purple-100 shadow-sm">
+            <h4 className="text-xl font-bold text-gray-900 mb-4">{faq.q}</h4>
+            <p className="text-gray-500 leading-relaxed font-light">{faq.a}</p>
           </div>
-          <div>
-            <div className="flex items-center justify-between gap-2">
-              <h4 className="font-bold text-gray-900 text-sm">{bonus.title}</h4>
-              <span className="text-[10px] font-black text-green-600 uppercase bg-green-100 px-2 py-0.5 rounded-full">FREE</span>
-            </div>
-            <p className="text-xs text-gray-500 font-light mt-1">{bonus.description}</p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  );
-};
+  </section>
+);
 
 
-const HomePage = () => {
-  const navigate = useNavigate();
-  const { addToCart } = useCart();
-  const heroRef = useRef(null);
-  const [email, setEmail] = useState("");
-  const [showExitPopup, setShowExitPopup] = useState(false);
-  const [showStickyBar, setShowStickyBar] = useState(false);
-  const [hasShownPopup, setHasShownPopup] = useState(false);
+// In-Page Sticky Section Navigator (appears after hero scroll)
+const SectionNavigator = () => {
+  const [visible, setVisible] = useState(false);
+  const [active, setActive] = useState("");
+
+  const sections = [
+    { id: "science", label: "The Science" },
+    { id: "journey", label: "Your Journey" },
+    { id: "packages", label: "Packages" },
+    { id: "stories", label: "Stories" },
+    { id: "about-ria", label: "About Ria" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
+      const heroHeight = window.innerHeight * 0.85;
+      setVisible(window.scrollY > heroHeight);
 
-      // Show after 800px scroll, but hide when reaching the footer (last 600px of the page)
-      if (scrollY > 800 && scrollY + windowHeight < documentHeight - 600) {
-        setShowStickyBar(true);
-      } else {
-        setShowStickyBar(false);
+      // Highlight active section
+      for (const section of [...sections].reverse()) {
+        const el = document.getElementById(section.id);
+        if (el && window.scrollY >= el.offsetTop - 120) {
+          setActive(section.id);
+          break;
+        }
       }
     };
-
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  return (
+    <AnimatePresence>
+      {visible && (
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 20, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 hidden md:flex"
+        >
+          <div className="flex items-center gap-1 bg-white/90 backdrop-blur-xl border border-purple-100 shadow-2xl shadow-purple-100/40 rounded-full px-3 py-2">
+            {sections.map((s) => (
+              <button
+                key={s.id}
+                onClick={() => scrollTo(s.id)}
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 whitespace-nowrap ${active === s.id
+                  ? "bg-purple-600 text-white shadow-md shadow-purple-200"
+                  : "text-gray-500 hover:text-purple-700 hover:bg-purple-50"
+                  }`}
+              >
+                {s.label}
+              </button>
+            ))}
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+// Main HomePage Component
+const HomePage = () => {
+  const navigate = useNavigate();
+  const heroRef = useRef(null);
+  const [showExitPopup, setShowExitPopup] = useState(false);
+
   useEffect(() => {
-    // Prevent the popup from showing twice in the same session
     const isShown = sessionStorage.getItem("exitPopupShown");
     if (isShown) return;
-
     const handleMouseLeave = (e) => {
-      // clientY < 25 detects mouse moving towards the tabs/address bar more reliably
       if (e.clientY < 25) {
         setShowExitPopup(true);
         sessionStorage.setItem("exitPopupShown", "true");
         document.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
-
-    // 2s delay to allow page initialization
     const activationTimer = setTimeout(() => {
       document.addEventListener("mouseleave", handleMouseLeave);
     }, 2000);
-
     return () => {
       document.removeEventListener("mouseleave", handleMouseLeave);
       clearTimeout(activationTimer);
     };
   }, []);
 
-  const [selectedProduct, setSelectedProduct] = useState(null);
-
-  const products = [
-    {
-      id: "sleep",
-      title: "Sleep Mixtape",
-      subtitle: "Calming Music • Overnight Mindset Reset",
-      description: "Relax, unwind, and train your mind while you sleep.",
-      fullDetail: `The Sleep Tape is a 60-minute calming audio for bedtime and slow mornings when your mind is naturally relaxed and more open to positive change.
-
-On the surface, it’s soft, peaceful music you’ll enjoy.
-Underneath, it has gentle affirmations layered in so you don’t have to “do” anything. Just press play.`,
-      duration: "60 minutes",
-      sound: "Soft, dreamy, soothing music that helps you feel calm and sleepy.",
-      perfectFor: "Sleep, morning calm, journaling, yoga, meditation, or winding down.",
-      bestFor: "Anyone who wants a calmer mindset and stronger self-belief without adding a new routine.",
-      usage: "Play at bedtime. Headphones optional.",
-      price: 2499,
-      formattedPrice: "₹2,499",
-      img: "/images/sleep-mixtape.png",
-      color: "bg-[#1E1B4B]",
-      shopUrl: "https://riagupta.com/product/sleep-mixtape/",
-    }
-  ];
-
-  const testimonials = [
-    {
-      text: "I started playing the love sleep tape every night. Three weeks later, I met someone who checks all my boxes. This seemed too good to be true but here we are!",
-      name: "Sanya P.",
-      location: "New Delhi",
-      img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-    },
-    {
-      text: "I was skeptical. Two days later, a client I hadn't heard from in months reached out and paid in full. No coincidence in my book.",
-      name: "Leah M.",
-      location: "Vancouver",
-      img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-    },
-    {
-      text: "Within a week of listening, I got a job offer with better pay and 100% remote work. This is exactly what I envisioned.",
-      name: "Melanie T.",
-      location: "Toronto",
-      img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-    },
-  ];
-
-  const handleEmailSubmit = (e) => {
-    e.preventDefault();
-    window.location.href = "/free-gift";
-  };
-
   return (
     <div className="min-h-screen bg-white text-gray-900">
-      <StickyPurchaseBar isVisible={showStickyBar} />
-      <AudioPreview />
+      <SectionNavigator />
       <PurchaseNotification />
       <ExitPopup isOpen={showExitPopup} onClose={() => setShowExitPopup(false)} />
 
@@ -871,9 +989,9 @@ Underneath, it has gentle affirmations layered in so you don’t have to “do�
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 bg-purple-100/80 backdrop-blur-sm border border-purple-200 rounded-full px-6 py-2 mb-8"
           >
-            <Sparkles className="w-4 h-4 text-purple-600" />
+            <Brain className="w-4 h-4 text-purple-600" />
             <span className="text-sm font-semibold text-purple-700 uppercase tracking-widest">
-              Psychologist-Designed • Music-Powered
+              Psychologist-Designed • Science-Backed • Ethical Manifestation
             </span>
           </motion.div>
 
@@ -881,11 +999,11 @@ Underneath, it has gentle affirmations layered in so you don’t have to “do�
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold leading-[1] mb-10 tracking-tight"
+            className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-serif font-bold leading-[1] mb-10 tracking-tight"
           >
-            Rewire While <br />
+            Where Psychology <br />
             <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent italic">
-              You Sleep.
+              Meets Sound Healing.
             </span>
           </motion.h1>
 
@@ -895,261 +1013,149 @@ Underneath, it has gentle affirmations layered in so you don’t have to “do�
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Bypass your conscious resistance with the 432Hz Sleep Mixtape.
-            No effort. No meditation. Just press play and wake up transformed.
+            Specially engineered manifestation &amp; healing music that rewires your subconscious mind.
+            Designed by a trained psychologist.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex justify-center mb-10"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
             <motion.button
-              onClick={() => document.getElementById('products').scrollIntoView({ behavior: 'smooth' })}
-              className="bg-gradient-to-r from-purple-600 to-purple-800 text-white font-bold py-5 px-10 rounded-full transition-all duration-500 hover:shadow-purple-200 hover:shadow-2xl flex items-center justify-center gap-3 whitespace-nowrap"
+              onClick={() => navigate('/free-gift')}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              className="bg-gradient-to-r from-purple-600 to-purple-800 text-white font-bold py-5 px-8 rounded-full transition-all duration-500 hover:shadow-purple-200 hover:shadow-2xl flex items-center justify-center gap-3 text-base md:text-lg"
             >
-              <PlayCircle size={22} className="animate-pulse" />
-              Start Your 21-Day Journey
+              <Headphones size={22} className="animate-pulse" />
+              Experience the Free Track
             </motion.button>
+            <motion.button
+              onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              className="border-2 border-purple-200 text-purple-700 font-bold py-5 px-10 rounded-full hover:border-purple-400 hover:bg-purple-50 transition-all duration-300 flex items-center justify-center gap-3 text-lg"
+            >
+              Explore Packages <ArrowRight size={18} />
+            </motion.button>
+          </motion.div>
+
+          {/* Social proof strip */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-500"
+          >
+            <div className="flex -space-x-2">
+              {["https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
+                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
+                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+              ].map((url, i) => (
+                <img key={i} src={url} className="w-9 h-9 rounded-full border-2 border-white object-cover shadow-sm" alt="" />
+              ))}
+            </div>
+            <span><strong className="text-gray-800">10,000+</strong> people have started their journey</span>
+            <span className="hidden sm:block text-gray-300">|</span>
+            <span className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-amber-400 fill-amber-400" />)}
+              <span className="ml-1">Psychology-backed</span>
+            </span>
+          </motion.div>
+
+          <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="mt-16 flex justify-center">
+            <ChevronDown className="text-purple-300" size={32} />
           </motion.div>
         </div>
       </section>
 
-      {/* PROBLEM BREAKDOWN */}
-      <section className="py-24 md:py-32 px-4 bg-white">
+      {/* PROBLEM / POSITIONING */}
+      <section className="py-14 md:py-20 px-4 bg-white">
         <div className="container-custom max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-serif font-bold mb-10 text-gray-900 leading-tight italic">
-            "Tired of manifestation feeling like homework?"
+            "Why does manifestation never seem to work?"
           </h2>
           <p className="text-xl md:text-2xl text-gray-500 mb-12 font-light leading-relaxed">
-            Most people quit because it's another task on their to-do list. <br />
-            <span className="text-purple-600 font-bold">WishTune works while you live your life.</span>
+            It's not because you're doing it wrong. It's because most methods work <em>against</em> how your mind actually functions.<br />
+            <span className="text-purple-600 font-bold not-italic">Ria's approach works with your subconscious — not over it.</span>
           </p>
-          <div className="flex justify-center">
-            <div className="w-24 h-px bg-purple-100" />
-          </div>
+          <div className="flex justify-center"><div className="w-24 h-px bg-purple-100" /></div>
         </div>
       </section>
 
-      {/* 3-STEP JOURNEY */}
-      <JourneySection />
+      {/* SCIENCE EDUCATION SECTION */}
+      <div id="science"><ScienceSection /></div>
 
-      {/* COMPARISON SECTION */}
-      <ComparisonSection />
+      {/* 4-PHASE FUNNEL JOURNEY */}
+      <div id="journey"><FunnelJourneySection /></div>
 
-      {/* SINGLE PRODUCT SHOWCASE */}
-      <section id="products" className="py-20 md:py-32 px-4 bg-[#f4f4f7] overflow-hidden">
-        <div className="container-custom max-w-7xl relative">
-          <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 xl:gap-14 items-center">
-            {/* Product Image Card */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="absolute inset-0 bg-purple-200 rounded-[2.5rem] blur-3xl opacity-30 animate-pulse" />
-              <div className="relative rounded-[2.5rem] overflow-hidden border border-purple-100 shadow-[0_35px_90px_rgba(17,24,39,0.22)] bg-white aspect-[16/10]">
-                <img
-                  src="/images/sleep-mixtape.png"
-                  alt="The Sleep Mixtape"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-purple-600 text-white px-4 sm:px-5 py-2 rounded-full text-[11px] font-black shadow-xl tracking-widest">
-                  FLAGSHIP OFFER
-                </div>
-
-                <div className="absolute right-3 bottom-3 sm:right-4 sm:bottom-4 bg-white/95 backdrop-blur p-2 sm:p-2.5 rounded-2xl shadow-2xl border border-purple-50 flex items-center gap-2 max-w-[170px] sm:max-w-[195px]">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0">
-                    <Shield size={15} />
-                  </div>
-                  <div>
-                    <p className="text-[11px] sm:text-xs font-bold text-gray-900 leading-tight">100% Secure & Guaranteed</p>
-                    <p className="text-[8px] text-gray-500 uppercase font-bold tracking-tight">Lifetime Access Included</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Product Details Card */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="rounded-[2.5rem] border border-purple-100 bg-white/95 backdrop-blur-sm shadow-[0_30px_100px_rgba(17,24,39,0.08)] p-8 md:p-10 xl:p-12 space-y-8"
-            >
-              <div>
-                <div className="flex items-center gap-3 text-purple-600 font-black text-sm uppercase tracking-[0.28em] mb-5">
-                  <Zap size={16} /> Manifestation Music
-                </div>
-                <h2 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 leading-[0.95] mb-6">
-                  The <span className="italic">Sleep</span> <br />Mixtape
-                </h2>
-                <div className="flex items-center gap-3">
-                  <p className="text-[11px] text-gray-400 font-black uppercase tracking-[0.24em]">Offer Ends In</p>
-                  <CountdownTimer />
-                </div>
-              </div>
-
-              <p className="text-xl text-gray-500 font-light leading-relaxed">
-                The Sleep Tape is a 60-minute calming audio for bedtime and slow mornings when your mind is naturally relaxed and more open to positive change.
-              </p>
-
-              <div className="space-y-5">
-                {[
-                  "Track Duration: 60 minutes",
-                  "Soft, dreamy music for deep rest",
-                  "Perfect for sleep, yoga, and wind-down",
-                  "Builds calm confidence and self-belief",
-                  "Use nightly for best manifestation results"
-                ].map((feature, i) => (
-                  <div key={i} className="flex items-center gap-4 text-gray-700">
-                    <Check size={18} className="text-purple-600 shrink-0" />
-                    <span className="font-medium text-base md:text-lg">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-8 border-t border-purple-100">
-                <div className="flex flex-wrap items-end gap-4 mb-6">
-                  <div>
-                    <p className="text-gray-400 text-sm font-bold uppercase tracking-widest line-through">₹5,999</p>
-                    <p className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent leading-none">₹2,499</p>
-                  </div>
-                  <div className="bg-purple-100 text-purple-700 px-4 py-2 rounded-2xl text-sm font-black uppercase tracking-widest mb-2">
-                    58% OFF TODAY
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-4">
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => window.open('https://riagupta.com/product/sleep-mixtape/', '_blank')}
-                    className="w-full bg-gradient-to-r from-purple-600 to-purple-800 text-white font-black text-2xl py-6 rounded-[2rem] shadow-2xl shadow-purple-200 border border-purple-500/20 flex items-center justify-center gap-4 group"
-                  >
-                    YES! SECURE MY MIXTAPE <ArrowRight className="group-hover:translate-x-2 transition-transform" />
-                  </motion.button>
-                  <p className="text-center text-gray-400 text-xs font-medium uppercase tracking-[0.2em]">
-                    Instant Digital Delivery • One-Time Payment
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          <div className="flex items-center justify-center gap-6 pt-6 grayscale opacity-40">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Stripe" className="h-6" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="h-6" />
-            <div className="w-px h-8 bg-gray-200" />
-            <div className="flex items-center gap-1">
-              <Lock size={14} />
-              <span className="text-[10px] font-black uppercase tracking-widest">Secure SSL</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* PRODUCT LADDER */}
+      <div id="packages"><ProductLadderSection /></div>
 
       {/* QUALIFICATION SECTION */}
       <QualificationSection />
 
-      {/* TESTIMONIALS */}
-      <section className="py-24 md:py-32 px-4 bg-white border-y border-gray-50">
-        <div className="container-custom max-w-6xl">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900">
-              Real People, <span className="italic">Real Results</span>
-            </h2>
-          </div>
+      {/* EXPERIENCE STORIES */}
+      <div id="stories"><ExperienceStoriesSection /></div>
 
-          <div className="grid md:grid-cols-3 gap-10">
-            {testimonials.map((test, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-purple-50/50 p-10 rounded-[2.5rem] relative"
-              >
-                <Sparkles
-                  className="absolute top-8 right-8 text-purple-200"
-                  size={32}
-                />
-                <p className="text-gray-700 italic text-lg leading-relaxed mb-8 font-light">
-                  "{test.text}"
-                </p>
-                <div className="flex items-center gap-5">
-                  <img
-                    src={test.img}
-                    className="w-14 h-14 rounded-full border-2 border-purple-200 shadow-md"
-                    alt={test.name}
-                  />
-                  <div>
-                    <p className="font-bold text-gray-900 text-lg">
-                      {test.name}
-                    </p>
-                    <p className="text-xs uppercase text-purple-600 font-bold tracking-widest">
-                      {test.location}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* SOCIAL BRIDGE — Instagram & YouTube */}
+      <SocialBridgeSection />
 
       {/* FAQ SECTION */}
-      <section className="py-24 md:py-32 px-4 bg-gray-50">
-        <div className="container-custom max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-serif font-bold mb-16 text-center text-gray-900 italic">
-            Questions? We Have <span className="text-purple-600">Answers</span>
-          </h2>
-          <div className="space-y-8">
-            {[
-              { q: "Will I hear the affirmations?", a: "No, the affirmations are layered beneath the music using patent-pending frequency modulation. They bypass your conscious 'logical' mind and go straight to your subconscious. You'll just hear high-vibe, premium music." },
-              { q: "How long before I see results?", a: "Most users report a shift in their mood and 'lucky' synchronicities within the first 3-7 days. For deep rewiring, we recommend consistent use for 21 days." },
-              { q: "Is this scientifically proven?", a: "Our music uses neuro-acoustic principles like binaural beats and isochronic tones to move your brain into Alpha and Theta states—the states most receptive to new information and manifestation." },
-              { q: "What if it doesn't work for me?", a: "We offer a 21-Day Money Back Guarantee. If you listen consistently for 21 days and don't feel a shift, contact us for a full refund. No questions asked." },
-              { q: "Can I use while doing other things?", a: "Yes! That's the beauty of WishTune. You can manifest while you sleep, work out, shower, or even at a party. It's manifestation on autopilot." }
-            ].map((faq, i) => (
-              <div key={i} className="bg-white p-8 rounded-3xl border border-purple-100 shadow-sm">
-                <h4 className="text-xl font-bold text-gray-900 mb-4">{faq.q}</h4>
-                <p className="text-gray-500 leading-relaxed font-light">{faq.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQSection />
 
-      {/* ABOUT FOUNDER */}
-      <AboutFounderSection />
+      {/* ABOUT RIA — AUTHORITY SECTION */}
+      <div id="about-ria"><AboutFounderSection /></div>
 
-      {/* FINAL CTA */}
-      <section className="py-24 md:py-40 px-4 bg-gradient-to-t from-purple-50 to-white text-center relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-purple-100 opacity-50" />
-        <div className="container-custom max-w-4xl relative z-10">
-          <h2 className="text-5xl md:text-8xl font-serif font-bold mb-10 text-gray-900 tracking-tight leading-[1]">
-            Ready to <br />
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent italic">
-              Manifest Effortlessly?
-            </span>
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-500 mb-16 max-w-2xl mx-auto font-light">
-            Join 1,607+ people transforming their lives. Stop trying and start shifting today.
-          </p>
-          <button
-            onClick={() => document.getElementById('products').scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center gap-4 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-bold py-8 px-16 rounded-full transition-all duration-500 hover:shadow-2xl hover:scale-105 text-2xl group shadow-purple-200/50 shadow-xl"
+      {/* COMBINED FINAL CTA */}
+      <section className="py-14 md:py-20 px-4 bg-gradient-to-b from-white via-purple-50 to-purple-100 text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(147,51,234,0.08)_0%,_transparent_70%)]" />
+        <div className="container-custom max-w-3xl relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
           >
-            Get The Sleep Mixtape
-            <ArrowRight
-              size={28}
-              className="group-hover:translate-x-2 transition-transform"
-            />
-          </button>
+            <span className="text-purple-500 uppercase tracking-[0.2em] text-xs font-bold mb-6 block">Your Next Step</span>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold mb-6 text-gray-900 tracking-tight leading-[1.1]">
+              Ready to Begin?
+            </h2>
+            <p className="text-lg md:text-xl text-gray-500 mb-12 max-w-xl mx-auto font-light leading-relaxed">
+              Start free. Go deep when you're ready. No rush — just real, sustained transformation guided by psychology.
+            </p>
+
+            {/* 3 action paths */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+              <button
+                onClick={() => navigate('/free-gift')}
+                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-bold py-4 px-9 rounded-full hover:shadow-xl hover:shadow-purple-200 hover:scale-105 transition-all text-base"
+              >
+                <Headphones size={18} /> Get the Free Track
+              </button>
+              <button
+                onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center justify-center gap-3 border-2 border-purple-200 text-purple-700 font-bold py-4 px-9 rounded-full hover:border-purple-400 hover:bg-purple-50 transition-all text-base"
+              >
+                Explore All Packages
+              </button>
+            </div>
+
+            <p className="text-gray-400 text-sm">
+              Or{" "}
+              <button
+                onClick={() => document.dispatchEvent(new CustomEvent("openDiscoveryForm"))}
+                className="text-purple-600 font-semibold hover:underline underline-offset-2 transition-all"
+              >
+                book a free discovery call
+              </button>
+              {" "}— no pressure, just a conversation.
+            </p>
+
+            <p className="text-gray-300 text-xs mt-8">Free discovery call • No obligation • Psychology-led conversation</p>
+          </motion.div>
         </div>
       </section>
     </div>

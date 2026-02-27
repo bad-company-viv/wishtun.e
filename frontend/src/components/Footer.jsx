@@ -1,67 +1,95 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Linkedin, Youtube, Instagram } from "lucide-react";
+import { Linkedin, Youtube, Instagram, Phone, Headphones, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden pt-20 pb-10 border-t border-amber-200/40">
-      <div className="w-full relative z-10 flex flex-col items-center text-center">
-        {/* Massive Brand Name - Animated */}
-        <div className="w-full overflow-hidden mb-8 select-none flex justify-center">
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="text-[12vw] md:text-[18vw] font-black font-sans leading-none tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 via-pink-500 to-orange-500 whitespace-nowrap px-4"
-          >
-            WISHTUNE
-          </motion.h1>
+    <footer className="bg-gray-950 text-white relative overflow-hidden">
+      {/* Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-900/20 blur-[120px] pointer-events-none" />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-20 pb-10">
+        {/* Top grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 pb-16 border-b border-white/10">
+          {/* Brand */}
+          <div>
+            <img
+              src="/images/wishtune-logo.png"
+              alt="Wishtune"
+              className="h-9 w-auto object-contain mb-4 brightness-0 invert"
+            />
+            <p className="text-white/50 text-sm leading-relaxed max-w-xs">
+              Where psychology meets sound healing. Designed by a trained psychologist for real, lasting transformation.
+            </p>
+            <div className="flex items-center gap-4 mt-6">
+              <a href="https://www.instagram.com/riiagupta/" target="_blank" rel="noopener noreferrer"
+                className="w-9 h-9 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white/50 hover:text-[#E1306C] hover:border-[#E1306C]/30 transition-all">
+                <Instagram size={16} />
+              </a>
+              <a href="https://www.youtube.com/@manifestologywithria" target="_blank" rel="noopener noreferrer"
+                className="w-9 h-9 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white/50 hover:text-[#FF0000] hover:border-[#FF0000]/30 transition-all">
+                <Youtube size={16} />
+              </a>
+              <a href="https://www.linkedin.com/in/ria-gupta-007/" target="_blank" rel="noopener noreferrer"
+                className="w-9 h-9 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white/50 hover:text-[#0077b5] hover:border-[#0077b5]/30 transition-all">
+                <Linkedin size={16} />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white/30 mb-5">Explore</h4>
+            <ul className="space-y-3">
+              {[
+                { label: "Blog", href: "https://riagupta.com/blog" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} target="_blank" rel="noopener noreferrer"
+                    className="text-white/50 hover:text-white text-sm transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* CTA block */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white/30 mb-5">Start Here</h4>
+            <p className="text-white/50 text-sm mb-6 leading-relaxed">
+              Not sure where to begin? Start with the free track — no commitment, just experience.
+            </p>
+            <div className="space-y-3">
+              <Link
+                to="/free-gift"
+                className="flex items-center gap-2 w-full border border-purple-500/30 text-purple-300 font-semibold px-5 py-3 rounded-2xl hover:bg-purple-900/20 transition-all text-sm"
+              >
+                <Headphones size={16} /> Get Free Track
+              </Link>
+              <button
+                onClick={() => document.dispatchEvent(new CustomEvent("openDiscoveryForm"))}
+                className="flex items-center gap-2 w-full bg-purple-600 text-white font-bold px-5 py-3 rounded-2xl hover:bg-purple-700 transition-all text-sm"
+              >
+                <Phone size={16} /> Book a Discovery Call
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Footer Bottom: Socials + Copyright */}
-        <div className="max-w-7xl mx-auto px-4 w-full flex flex-col md:flex-row justify-between items-center border-t border-amber-200/40 pt-8 gap-4">
-          {/* Social Links */}
-          <div className="flex items-center gap-6">
-            <a
-              href="https://www.linkedin.com/in/ria-gupta-007/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-[#0077b5] transition-colors bg-white p-3 rounded-full hover:bg-gray-100 border border-gray-200"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a
-              href="https://www.youtube.com/@manifestologywithria"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-[#FF0000] transition-colors bg-white p-3 rounded-full hover:bg-gray-100 border border-gray-200"
-            >
-              <Youtube size={20} />
-            </a>
-            <a
-              href="https://www.instagram.com/riiagupta/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-[#E1306C] transition-colors bg-white p-3 rounded-full hover:bg-gray-100 border border-gray-200"
-            >
-              <Instagram size={20} />
-            </a>
+        {/* Bottom bar */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/25">
+          <p>© 2026 Wishtune by Ria Gupta — All Rights Reserved.</p>
+          <div className="flex items-center gap-1">
+            <span>Made with</span>
+            <Heart size={10} className="text-pink-400 mx-0.5" />
+            <span>for conscious seekers</span>
           </div>
 
-          {/* Copyright */}
-          <p className="text-gray-600 text-xs md:text-sm tracking-[0.2em] font-medium uppercase hover:text-gray-900 transition-colors">
-            2026 Wishtune – All Rights Reserved.
-          </p>
-
-          <div className="flex gap-4 items-center flex-wrap justify-center">
-            <a href="https://riagupta.com/blog" target="_blank" rel="noopener noreferrer" className="text-xs text-brand-gold font-bold hover:text-gray-900 transition-colors uppercase tracking-widest underline decoration-brand-gold/30 underline-offset-4">Ria's Blogs</a>
-          </div>
         </div>
       </div>
-
-      {/* Subtle background glow behind the text */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[50%] bg-brand-plum/5 blur-[100px] pointer-events-none" />
-    </footer >
+    </footer>
   );
 };
 
