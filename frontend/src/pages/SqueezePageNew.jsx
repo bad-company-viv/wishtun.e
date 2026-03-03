@@ -231,11 +231,11 @@ const SqueezePage = () => {
               </div>
               <div className="flex -space-x-2">
                 {[
-                  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
-                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
-                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
-                  "https://images.unsplash.com/photo-1521119989659-a83eee4882b2?w=100&h=100&fit=crop",
-                  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop"
+                  "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
+                  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+                  "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&h=100&fit=crop",
+                  "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
+                  "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=100&h=100&fit=crop"
                 ].map((url, i) => (
                   <img key={i} src={url} className="w-8 h-8 rounded-full border-2 border-white object-cover" alt={`User ${i}`} />
                 ))}
@@ -254,7 +254,7 @@ const SqueezePage = () => {
           transition={{ delay: 1 }}
           className="mt-16 text-center text-gray-500 text-sm italic max-w-xl mx-auto"
         >
-          "I didn't believe in any of this. But after a psychologist explained the subconscious mechanism behind it, I gave it a try. Three weeks later — I genuinely feel different. Calmer. More clear." — <strong>Shreya M., Delhi</strong>
+          "I didn't believe in any of this. But after a psychologist explained the subconscious mechanism behind it, I gave it a try. Three weeks later, I genuinely feel different. Calmer. More clear." <strong>Nandita V., Jaipur</strong>
         </motion.div>
       </div>
     </div>

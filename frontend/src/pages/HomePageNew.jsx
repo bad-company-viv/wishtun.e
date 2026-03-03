@@ -98,19 +98,25 @@ const WaveBackground = () => (
 // Purchase Notification Component (updated for healing music context)
 const PurchaseNotification = () => {
   const [notification, setNotification] = useState(null);
+  const lastIndexRef = useRef(-1);
   const notifications = [
-    { name: "Priya S.", location: "Mumbai", action: "started her healing journey", time: "2 minutes ago" },
-    { name: "Ananya K.", location: "Bangalore", action: "booked a discovery call", time: "5 minutes ago" },
+    { name: "Priya S.", location: "Mumbai", action: "started listening to affirmation music", time: "2 minutes ago" },
+    { name: "Ananya K.", location: "Bangalore", action: "downloaded the free track", time: "5 minutes ago" },
     { name: "Meera R.", location: "Delhi", action: "downloaded the free track", time: "1 minute ago" },
-    { name: "Divya M.", location: "Pune", action: "joined the Core Package", time: "8 minutes ago" },
-    { name: "Sunaina T.", location: "Hyderabad", action: "started her healing journey", time: "3 minutes ago" },
+    { name: "Divya M.", location: "Pune", action: "secured the Sleep Mixtape", time: "8 minutes ago" },
+    { name: "Sunaina T.", location: "Hyderabad", action: "started her rewiring journey", time: "3 minutes ago" },
+    { name: "Kavya P.", location: "Chennai", action: "secured the Sleep Mixtape", time: "6 minutes ago" },
   ];
   useEffect(() => {
     const interval = setInterval(() => {
-      const random = notifications[Math.floor(Math.random() * notifications.length)];
-      setNotification(random);
+      let idx;
+      do {
+        idx = Math.floor(Math.random() * notifications.length);
+      } while (idx === lastIndexRef.current);
+      lastIndexRef.current = idx;
+      setNotification(notifications[idx]);
       setTimeout(() => setNotification(null), 5000);
-    }, 15000);
+    }, 30000);
     return () => clearInterval(interval);
   }, []);
   return (
@@ -163,7 +169,7 @@ const ExitPopup = ({ isOpen, onClose }) => {
               </div>
             </div>
             <h2 className="text-3xl md:text-5xl font-serif font-bold text-gray-900 mb-4 leading-tight">
-              Before You Go —<br /><span className="italic text-purple-600">Experience This Free.</span>
+              Before You Go:<br /><span className="italic text-purple-600">Experience This Free.</span>
             </h2>
             <p className="text-gray-500 mb-10 text-lg font-light leading-relaxed">
               A 10-minute <strong>Manifestation Track</strong> — psychologist-designed to shift your subconscious state instantly.
@@ -416,10 +422,11 @@ const QualificationSection = () => (
           </div>
           <ul className="space-y-6">
             {[
+              "You already listen to music daily, while driving, in the shower, doing chores, or winding down.",
               "You're curious about the link between psychology, music, and mindset change.",
-              "You want science-backed, ethically positioned tools — not generic 'law of attraction' content.",
+              "You want science-backed tools, not generic 'law of attraction' content.",
               "You feel stuck in patterns that willpower alone can't seem to break.",
-              "You're open to a long-term, education-led approach to transformation.",
+              "You're open to a long-term approach and love music enough to make it count.",
             ].map((item, i) => (
               <li key={i} className="flex items-start gap-4">
                 <Check size={20} className="text-green-500 shrink-0 mt-1" />
@@ -474,9 +481,9 @@ const ProductLadderSection = () => {
       href: "/free-gift",
       items: [
         "10-minute sleep-ready track",
-        "Introduction to Theta states",
+        "Feel the subconscious shift in one listen",
         "Instant digital delivery",
-        "No email marketing spam",
+        "No spam, ever",
       ],
       highlight: false,
       badge: "ENTRY POINT",
@@ -486,18 +493,18 @@ const ProductLadderSection = () => {
     {
       level: "Core Experience",
       title: "The Sleep Mixtape",
-      subtitle: "60-Min Bedtime Protocol",
-      description: "A 60-minute calming audio for bedtime and slow mornings when your mind is naturally relaxed and more open to positive change.",
+      subtitle: "60-Min Bedtime Manifesting Music",
+      description: "A 60-minute calming manifesting soundtrack for bedtime and slow mornings. Enjoy beautiful music that quietly rewires your mindset while you rest.",
       price: "₹2,499",
       originalPrice: "₹5,999",
       cta: "Secure My Mixtape",
-      href: "/offer",
+      href: "https://riagupta.com/product/sleep-mixtape/",
       items: [
         "Track Duration: 60 minutes",
         "Soft, dreamy music for deep rest",
         "Perfect for sleep, yoga, and wind-down",
         "Builds calm confidence and self-belief",
-        "Use nightly for best manifestation results",
+        "Listening guide: dos and don'ts included",
       ],
       highlight: true,
       badge: "MOST POPULAR",
@@ -516,7 +523,7 @@ const ProductLadderSection = () => {
         "Personalized subconscious audit",
         "Custom sleep protocol with Ria",
         "One-on-one strategy sessions",
-        "Tailored healing track library",
+        "Tailored manifesting track library",
         "Priority mentorship access",
       ],
       highlight: false,
@@ -692,7 +699,7 @@ const AboutFounderSection = () => (
             >
               Ria Gupta
             </a>
-            <p className="text-purple-600 italic font-medium">&mdash; Founder, Wishtune</p>
+            <p className="text-purple-600 italic font-medium">Founder, Wishtune</p>
           </div>
         </motion.div>
       </div>
@@ -704,24 +711,24 @@ const AboutFounderSection = () => (
 const ExperienceStoriesSection = () => {
   const stories = [
     {
-      text: "I approached this skeptically — I'm not someone who believes in anything unproven. But the psychology behind it made sense. After 3 weeks of consistent listening, my anxiety baseline genuinely shifted. I feel calmer without trying.",
+      text: "I approached this skeptically. I'm not someone who believes in anything unproven. But the psychology behind it made sense. After 3 weeks of consistent listening, my anxiety baseline genuinely shifted. I feel calmer without trying.",
       name: "Priya K.",
       location: "Bangalore",
-      img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      img: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
       tag: "21-day journey"
     },
     {
-      text: "I'm a psychology student, so when Ria explained the subconscious mechanism behind the music, I was genuinely impressed. The layering is real — you can feel the shift without consciously hearing it. This is genuinely different from everything else.",
+      text: "I'm a psychology student, so when Ria explained the subconscious mechanism behind the music, I was genuinely impressed. The layering is real. You can feel the shift without consciously hearing it. This is genuinely different from everything else.",
       name: "Shreya M.",
       location: "Delhi",
-      img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      img: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
       tag: "Core Package"
     },
     {
-      text: "A month of listening and I've stopped waking up with that familiar sense of dread. I don't know exactly how to explain it — but something fundamental has changed. I'm more decisive, less reactive. Highly recommend starting with the free track.",
+      text: "A month of listening and I've stopped waking up with that familiar sense of dread. Something fundamental has changed. I'm more decisive, less reactive. Highly recommend starting with the free track.",
       name: "Ananya R.",
       location: "Mumbai",
-      img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
       tag: "Free track → Core Package"
     },
   ];
@@ -744,14 +751,14 @@ const ExperienceStoriesSection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-purple-50/50 p-10 rounded-[2.5rem] relative"
+              className="bg-purple-50/50 p-10 rounded-[2.5rem] relative flex flex-col"
             >
               <span className="absolute top-6 right-6 text-xs font-bold uppercase tracking-widest text-purple-400 bg-purple-100 px-3 py-1 rounded-full">
                 {story.tag}
               </span>
               <div className="text-purple-200 text-6xl font-serif leading-none mb-4">"</div>
-              <p className="text-gray-700 italic text-base leading-relaxed mb-8 font-light">{story.text}</p>
-              <div className="flex items-center gap-5">
+              <p className="text-gray-700 italic text-base leading-relaxed mb-8 font-light flex-1">{story.text}</p>
+              <div className="flex items-center gap-5 mt-auto">
                 <img src={story.img} className="w-14 h-14 rounded-full border-2 border-purple-200 shadow-md" alt={story.name} />
                 <div>
                   <p className="font-bold text-gray-900 text-lg">{story.name}</p>
@@ -864,10 +871,10 @@ const FAQSection = () => (
       </h2>
       <div className="space-y-8">
         {[
-          { q: "Is there actual psychology behind this?", a: "Yes. Ria is a trained psychologist. Every element of the music — the layering, the affirmation placement, the frequency choices — is grounded in how the subconscious mind processes information during relaxed states. This is not generic wellness content." },
-          { q: "Will I consciously hear the affirmations?", a: "No — and that's intentional. The affirmations are layered beneath the music specifically to bypass your conscious defenses. Your logical mind would filter them out. Your subconscious, however, absorbs them during relaxed states." },
-          { q: "How long before I feel a difference?", a: "Most listeners report a subtle shift in mood and baseline anxiety within the first week. For deeper reprogramming — identity-level shifts — we recommend 21+ days of regular listening. This is a long-term investment in your subconscious baseline." },
-          { q: "What's the difference between music tiers?", a: "The free track is an experience — a taster to feel Ria's approach. The Core Package includes the full music library plus guided reprogramming sessions. Premium Coaching is a 1:1 engagement with Ria where everything is tailored to your specific patterns." },
+          { q: "Is there actual psychology behind this?", a: "Yes. Ria is a trained psychologist. Every element of the music, the layering, the affirmation placement, the frequency choices, is grounded in how the subconscious mind processes information during relaxed states. This is not generic wellness content." },
+          { q: "Will I consciously hear the affirmations?", a: "No, and that's intentional. The affirmations are layered beneath the music specifically to bypass your conscious defenses. Your logical mind would filter them out. Your subconscious, however, absorbs them during relaxed states." },
+          { q: "How long before I feel a difference?", a: "Most listeners report a subtle shift in mood and baseline anxiety within the first week. For deeper reprogramming and identity-level shifts, we recommend 21+ days of regular listening. This is a long-term investment in your subconscious baseline." },
+          { q: "What's the difference between music tiers?", a: "The free track is a short introduction to affirmation music, a taster to feel Ria's approach. The Sleep Mixtape is the full 60-minute manifesting music experience, plus a listening guide with dos and don'ts so you get the most out of it. Premium Coaching is a 1:1 engagement with Ria where everything is tailored to your specific patterns." },
           { q: "Can I book a consultation first?", a: "Absolutely. In fact, we encourage it. A discovery call with Ria lets you understand whether her approach is right for you before any commitment. Use the 'Book a Discovery Call' button to start that conversation." },
         ].map((faq, i) => (
           <div key={i} className="bg-white p-8 rounded-3xl border border-purple-100 shadow-sm">
@@ -976,10 +983,9 @@ const HomePage = () => {
     <div className="min-h-screen bg-white text-gray-900">
       <SectionNavigator />
       <PurchaseNotification />
-      <PurchaseNotification />
       <ExitPopup isOpen={showExitPopup} onClose={() => setShowExitPopup(false)} />
 
-      {/* HERO SECTION — NOW LEADING WITH SLEEP */}
+      {/* HERO SECTION */}
       <section
         ref={heroRef}
         className="relative min-h-screen flex items-center justify-center px-4 pt-32 pb-20 overflow-hidden bg-white"
@@ -1030,7 +1036,21 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* PROBLEM / POSITIONING — UPDATED WITH ORIGINAL HERO HOOK */}
+      {/* PRESS TRUST STRIP */}
+      <section className="py-6 px-4 border-y border-gray-100 bg-white">
+        <div className="container-custom max-w-4xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-300">As Seen In</span>
+            <div className="flex items-center gap-8 sm:gap-12 grayscale opacity-40">
+              <span className="text-lg font-serif font-bold italic text-gray-600">dailyhunt</span>
+              <span className="text-base font-sans font-black tracking-tighter text-gray-600">The Tribune</span>
+              <span className="text-sm font-sans font-bold text-gray-600">Google News</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROBLEM / POSITIONING */}
       <section className="py-14 md:py-24 px-4 bg-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-100 to-transparent" />
         <div className="container-custom max-w-5xl mx-auto text-center relative z-10">
@@ -1047,19 +1067,18 @@ const HomePage = () => {
           </motion.div>
 
           <h2 className="text-4xl md:text-7xl font-serif font-bold mb-10 text-gray-900 leading-[1.1] tracking-tight">
-            Where Psychology <br />
+            You Already Listen to Music. <br />
             <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent italic">
-              Meets Sound Healing.
+              Make It Work For You.
             </span>
           </h2>
 
-          <p className="text-xl md:text-3xl text-gray-500 mb-12 font-light leading-relaxed max-w-4xl mx-auto italic">
-            "Why does manifestation never seem to work?"
+          <p className="text-xl md:text-2xl text-gray-600 mb-10 font-light leading-relaxed max-w-3xl mx-auto">
+            Driving. Showering. Cooking. Doing chores. Most people already have music on in the background. Wishtune makes every listen count — beautiful music layered with affirmations your subconscious quietly absorbs.
           </p>
 
           <p className="text-lg md:text-xl text-gray-500 mb-12 font-light leading-relaxed max-w-3xl mx-auto">
-            It's not because you're doing it wrong. It's because most methods work <em>against</em> how your mind actually functions.
-            Ria's approach works <span className="text-purple-600 font-bold not-italic">with your subconscious</span> — not over it.
+            It's not a ritual. It's not extra work. It's just music — that also works <span className="text-purple-600 font-bold not-italic">with your subconscious</span>, not against it.
           </p>
 
           <div className="flex justify-center"><div className="w-24 h-px bg-purple-100" /></div>

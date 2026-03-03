@@ -107,7 +107,7 @@ const OTOPage = () => {
   const navigate = useNavigate();
 
   const handleAcceptOffer = () => {
-    window.open("https://riagupta.com/product/sleep-mixtape/", "_blank");
+    navigate('/checkout');
   };
 
   return (
@@ -138,7 +138,7 @@ const OTOPage = () => {
               <span className="block italic text-purple-600 mt-2">Unlock the Full Experience.</span>
             </h1>
             <p className="text-xl text-gray-500 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-              The free track gives you a taste. The Core Package gives you the full healing music library — plus guided reprogramming sessions with Ria to accelerate your transformation.
+              The free track gives you a taste. The Sleep Mixtape gives you the full manifesting music experience, with a listening guide and dos &amp; don'ts to help you get the most out of every listen.
             </p>
           </motion.div>
 
@@ -154,23 +154,19 @@ const OTOPage = () => {
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-gray-600 text-sm">
                   <Check size={16} className="text-green-500 shrink-0 mt-0.5" />
-                  <span>1x 10-minute Manifestation Reset Track</span>
+                  <span>Short affirmation music intro (1-2 songs)</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-400 text-sm">
                   <X size={16} className="text-red-300 shrink-0 mt-0.5" />
-                  <span>No full healing music library</span>
+                  <span>No full 60-minute Sleep Mixtape</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-400 text-sm">
                   <X size={16} className="text-red-300 shrink-0 mt-0.5" />
-                  <span>No guided reprogramming sessions</span>
+                  <span>No listening guide or dos &amp; don'ts</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-400 text-sm">
                   <X size={16} className="text-red-300 shrink-0 mt-0.5" />
                   <span>No personalized 21-day roadmap</span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-400 text-sm">
-                  <X size={16} className="text-red-300 shrink-0 mt-0.5" />
-                  <span>No direct support from Ria</span>
                 </li>
               </ul>
             </div>
@@ -196,7 +192,7 @@ const OTOPage = () => {
                   "Soft, dreamy music for deep rest",
                   "Perfect for sleep, yoga, and wind-down",
                   "Builds calm confidence and self-belief",
-                  "Use nightly for best manifestation results"
+                  "Listening guide: dos and don'ts included"
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-gray-700 font-medium">
                     <Check size={18} className="text-purple-600 shrink-0" />
@@ -258,8 +254,8 @@ const OTOPage = () => {
               },
               {
                 icon: <Heart className="text-indigo-600" size={24} />,
-                title: "Ria's Guidance",
-                desc: "Access to reprogramming sessions means you understand how to listen, when, and why — for maximum impact.",
+                title: "Listening Guide Included",
+                desc: "A dos and don'ts guide so you know exactly how to listen, when, and why — for maximum impact without any fuss.",
               },
             ].map((item, i) => (
               <div key={i} className="bg-white border border-purple-50 rounded-3xl p-8 shadow-sm">
@@ -295,16 +291,16 @@ const OTOPage = () => {
           <div className="mt-12 flex flex-col items-center gap-3">
             <div className="flex -space-x-3">
               {[
-                "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
-                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
-                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
-                "https://images.unsplash.com/photo-1521119989659-a83eee4882b2?w=100&h=100&fit=crop",
-                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop"
+                "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
+                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+                "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&h=100&fit=crop",
+                "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
+                "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=100&h=100&fit=crop"
               ].map((url, i) => (
                 <img key={i} src={url} className="w-11 h-11 rounded-full border-4 border-white object-cover shadow-md" alt={`User ${i}`} />
               ))}
             </div>
-            <p className="text-gray-500 text-sm">Join thousands already on their healing journey</p>
+            <p className="text-gray-500 text-sm">Join thousands already on their rewiring journey</p>
             <div className="flex items-center gap-2 text-xs text-gray-400 mt-1">
               <Lock size={12} /> Secure Payment • Instant Access • 21-Day Guarantee
             </div>

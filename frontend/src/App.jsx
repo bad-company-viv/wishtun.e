@@ -7,6 +7,7 @@ import ThankYouPage from "./pages/ThankYouPage";
 import HomePage from "./pages/HomePageNew"; // Using the NEW high-converting version
 import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
+import CheckoutPage from "./pages/CheckoutPage";
 import Navbar from "./components/NavbarNew"; // Using the NEW premium version
 import Footer from "./components/Footer";
 import { CartProvider } from "./context/CartContext";
@@ -48,6 +49,7 @@ function App() {
         {/* High-Converting Funnel Pages (Minimal distractions) */}
         <Route path="/free-gift" element={<SqueezePage />} />
         <Route path="/offer" element={<OTOPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/thank-you" element={<ThankYouPage />} />
       </Routes>
     </CartProvider>
