@@ -45,7 +45,7 @@ const ServicesPage = () => {
           animate={{ opacity: 1 }}
           className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 font-bold tracking-widest uppercase text-xs px-5 py-2 rounded-full mb-6"
         >
-          <Brain size={14} /> Psychologist-Designed • Science-Backed
+          <Brain size={14} /> Psychologist Designed • Science Backed
         </motion.span>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -56,7 +56,7 @@ const ServicesPage = () => {
           <span className="italic text-purple-600">Transformation Path.</span>
         </motion.h1>
         <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
-          Every offering is rooted in psychology and precision sound design. Start where you are — go as deep as you choose.
+          Every offering is rooted in psychology and precision sound design. Start where you are, go as deep as you choose.
         </p>
       </section>
 
@@ -67,7 +67,7 @@ const ServicesPage = () => {
             { icon: <Award size={24} className="text-purple-500" />, stat: "5+", label: "Years in Psychology" },
             { icon: <Users size={24} className="text-pink-500" />, stat: "1000+", label: "Lives Changed" },
             { icon: <Globe size={24} className="text-indigo-500" />, stat: "10K+", label: "Global Listeners" },
-            { icon: <CheckCircle size={24} className="text-green-500" />, stat: "21-Day", label: "Proven Framework" },
+            { icon: <CheckCircle size={24} className="text-green-500" />, stat: "21 Day", label: "Proven Framework" },
           ].map((item, i) => (
             <div key={i} className="bg-purple-50 border border-purple-100 rounded-2xl p-5 text-center">
               <div className="flex justify-center mb-2">{item.icon}</div>
@@ -94,7 +94,7 @@ const ServicesPage = () => {
             <span className="text-xs font-black uppercase tracking-widest text-purple-400 mb-2 block">Free</span>
             <h3 className="text-2xl font-serif font-bold mb-3">Manifestation Reset Track</h3>
             <p className="text-gray-500 text-sm font-light leading-relaxed mb-6">
-              A 10-minute psychologist-designed audio track to experience subconscious reprogramming firsthand. The best starting point — no commitment needed.
+              A 10 minute psychologist designed audio track to experience subconscious reprogramming firsthand. The best starting point, no commitment needed.
             </p>
             <ul className="space-y-2 mb-8 text-sm">
               {["Psychologist-layered audio architecture", "Subconscious affirmation embedding", "Instant digital delivery"].map((f, i) => (
@@ -122,13 +122,13 @@ const ServicesPage = () => {
             <span className="text-xs font-black uppercase tracking-widest text-purple-600 mb-2 block">Core</span>
             <h3 className="text-2xl font-serif font-bold mb-3">Music + Guidance Package</h3>
             <p className="text-gray-500 text-sm font-light leading-relaxed mb-6">
-              Full healing music library combined with Ria's guided reprogramming sessions and a personalized 21-day roadmap.
+              Full healing music library combined with Ria's guided reprogramming sessions and a personalized 21 day roadmap.
             </p>
             <ul className="space-y-2 mb-8 text-sm">
               {[
                 "Complete healing music library",
                 "Guided reprogramming sessions",
-                "21-day personalized roadmap",
+                "21 day personalized roadmap",
                 "Priority community access",
                 "Monthly live Q&A",
               ].map((f, i) => (
@@ -155,7 +155,7 @@ const ServicesPage = () => {
             <span className="text-xs font-black uppercase tracking-widest text-indigo-400 mb-2 block">Premium</span>
             <h3 className="text-2xl font-serif font-bold mb-3">1:1 Coaching with Ria</h3>
             <p className="text-gray-500 text-sm font-light leading-relaxed mb-6">
-              A fully personalized engagement — subconscious audit, custom music protocol, and ongoing mentorship from Ria. For those serious about deep, lasting transformation.
+              A fully personalized engagement, subconscious audit, custom music protocol, and ongoing mentorship from Ria. For those serious about deep, lasting transformation.
             </p>
             <ul className="space-y-2 mb-8 text-sm">
               {[
@@ -189,9 +189,9 @@ const ServicesPage = () => {
           <h2 className="text-3xl md:text-5xl font-serif font-bold mb-16">How the Transformation Works</h2>
           <div className="grid md:grid-cols-4 gap-8 text-left">
             {[
-              { step: "01", title: "Experience First", desc: "Start with the free track. Feel the shift — no explanation needed, the experience speaks." },
+              { step: "01", title: "Experience First", desc: "Start with the free track. Feel the shift, no explanation needed, the experience speaks." },
               { step: "02", title: "Understand the Science", desc: "Learn the psychology behind subconscious reprogramming. Trust is built through knowledge." },
-              { step: "03", title: "Deepen Your Practice", desc: "Upgrade to the Core Package for structured 21-day reprogramming with Ria's guidance." },
+              { step: "03", title: "Deepen Your Practice", desc: "Upgrade to the Core Package for structured 21 day reprogramming with Ria's guidance." },
               { step: "04", title: "Transform Deeply", desc: "For lasting change, 1:1 coaching gives you a personalized protocol and direct mentorship." },
             ].map((item, i) => (
               <div key={i}>
@@ -218,7 +218,7 @@ const ServicesPage = () => {
             },
             {
               question: "Why 21 days?",
-              answer: "Neuroplasticity research shows it takes approximately 21 days of consistent repetition to form new neural pathways. This is the minimum threshold for meaningful mindset shifts — which is why all of Ria's frameworks are built around it.",
+              answer: "Neuroplasticity research shows it takes approximately 21 days of consistent repetition to form new neural pathways. This is the minimum threshold for meaningful mindset shifts, which is why all of Ria's frameworks are built around it.",
             },
             {
               question: "Can I start without headphones?",
@@ -226,11 +226,11 @@ const ServicesPage = () => {
             },
             {
               question: "What's the difference between the Core Package and 1:1 Coaching?",
-              answer: "The Core Package is a structured program — music library + guided sessions + 21-day roadmap. It's self-directed with community support. 1:1 Coaching is fully personalized: Ria audits your specific subconscious patterns and builds a custom protocol around your individual goals.",
+              answer: "The Core Package is a structured program, music library + guided sessions + 21-day roadmap. It's self-directed with community support. 1:1 Coaching is fully personalized: Ria audits your specific subconscious patterns and builds a custom protocol around your individual goals.",
             },
             {
               question: "How do I know if the Discovery Call is right for me?",
-              answer: "If you're curious about how Ria's approach could apply to your specific situation, a discovery call is the best starting point. It's free, there's no pressure, and you'll leave with clarity — whether or not you proceed.",
+              answer: "If you're curious about how Ria's approach could apply to your specific situation, a discovery call is the best starting point. It's free, there's no pressure, and you'll leave with clarity, whether or not you proceed.",
             },
           ].map((item, i) => (
             <FAQItem key={i} question={item.question} answer={item.answer} />

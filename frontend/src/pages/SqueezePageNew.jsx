@@ -144,7 +144,7 @@ const SqueezePage = () => {
             className="max-w-2xl mx-auto space-y-4"
           >
             <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
-              A free 10-minute Manifestation Track — psychologist-designed to shift your subconscious state and give you a real taste of how healing music works.
+              A free 10 minute Manifestation Track, psychologist designed to shift your subconscious state and give you a real taste of how healing music works.
             </p>
           </motion.div>
         </div>
@@ -176,9 +176,9 @@ const SqueezePage = () => {
               <p className="text-xs font-bold uppercase tracking-widest text-purple-500 mb-4">In this free track, you'll experience:</p>
               <div className="space-y-3">
                 {[
-                  { icon: <Brain size={16} />, text: "Psychologist-designed layered audio architecture" },
-                  { icon: <Layers size={16} />, text: "Subconscious-level affirmation embedding" },
-                  { icon: <Activity size={16} />, text: "Frequency-guided relaxation & receptive state" },
+                  { icon: <Brain size={16} />, text: "Psychologist designed layered audio architecture" },
+                  { icon: <Layers size={16} />, text: "Subconscious level affirmation embedding" },
+                  { icon: <Activity size={16} />, text: "Frequency guided relaxation & receptive state" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3 text-gray-700 text-sm">
                     <span className="text-purple-500 shrink-0">{item.icon}</span>
@@ -191,7 +191,7 @@ const SqueezePage = () => {
             <div className="space-y-3 mb-8">
               <div className="flex items-center gap-3 text-gray-600 text-sm">
                 <Check className="text-purple-500 shrink-0" size={16} />
-                <span>Instant delivery — no waiting</span>
+                <span>Instant delivery, no waiting</span>
               </div>
               <div className="flex items-center gap-3 text-gray-600 text-sm">
                 <Check className="text-purple-500 shrink-0" size={16} />
@@ -254,7 +254,7 @@ const SqueezePage = () => {
           transition={{ delay: 1 }}
           className="mt-16 text-center text-gray-500 text-sm italic max-w-xl mx-auto"
         >
-          "I didn't believe in any of this. But after a psychologist explained the subconscious mechanism behind it, I gave it a try. Three weeks later — I genuinely feel different. Calmer. More clear." — <strong>Shreya M., Delhi</strong>
+          "I didn't believe in any of this. But after a psychologist explained the subconscious mechanism behind it, I gave it a try. Three weeks later, I genuinely feel different. Calmer. More clear." <strong>Shreya M., Delhi</strong>
         </motion.div>
       </div>
     </div>

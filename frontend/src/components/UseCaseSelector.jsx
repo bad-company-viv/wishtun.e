@@ -13,7 +13,7 @@ const useCases = [
   },
   {
     id: "workday",
-    title: "High-Pressure Workdays",
+    title: "High Pressure Workdays",
     icon: <Zap size={32} />,
     desc: "Decompress & Reset",
     color: "from-amber-900 to-orange-900",
@@ -22,7 +22,7 @@ const useCases = [
     id: "deep-sleep",
     title: "Deep Sleep Reset",
     icon: <Sparkles size={32} />,
-    desc: "Clinical-grade rest",
+    desc: "Clinical grade rest",
     color: "from-purple-900 to-slate-900",
   },
   {

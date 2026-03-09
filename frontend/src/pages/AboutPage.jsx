@@ -60,7 +60,7 @@ const AboutPage = () => {
                                 Ria Gupta
                             </h3>
                             <p className="text-gray-500 italic font-light">
-                                &mdash; Founder, Wishtune
+                                Founder, Wishtune
                             </p>
                         </div>
 

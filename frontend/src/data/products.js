@@ -11,7 +11,7 @@ export const products = [
     features: [
       "Triggers rapid REM cycles",
       "Cellular regeneration frequencies",
-      "Clinical-grade delta waves",
+      "Clinical grade delta waves",
       "Lifetime access + Updates",
     ],
     tags: ["Clinical", "45 min"],
@@ -35,7 +35,7 @@ export const products = [
     priceValue: 1999,
     image: "/products/party.png",
     description:
-      "High-vibe frequencies to shift your energy before a social event. Magnetic aura activation.",
+      "High vibe frequencies to shift your energy before a social event. Magnetic aura activation.",
     features: [
       "Social anxiety reduction",
       "Energy boost (Gamma waves)",
@@ -63,7 +63,7 @@ export const products = [
     features: [
       "528Hz Miracle Tone",
       "Water-tuned acoustics",
-      "Short 15-min session",
+      "Short 15 min session",
       "Creative block breaker",
     ],
     tags: ["Alignment", "15 min"],
@@ -85,7 +85,7 @@ export const products = [
     description:
       "A bespoke audio track engineered specifically for your unique energy signature, goals, and name.",
     features: [
-      "1-on-1 Consultation with Ria",
+      "1 on 1 Consultation with Ria",
       "Custom Frequency Analysis",
       "Your Name Embedded Subliminally",
       "Delivered within 7 days",
@@ -109,7 +109,7 @@ export const products = [
     description:
       "A digital integration companion. Stop bullet journaling and start frequency logging.",
     features: [
-      "Daily Frequency Check-ins",
+      "Daily Frequency Check ins",
       "Manifestation Prompts",
       "Audio Integration",
       "Progress Tracking",
@@ -119,7 +119,7 @@ export const products = [
     faqs: [
       {
         q: "Is this a physical book?",
-        a: "No, it is a high-quality interactive PDF designed for tablets and phones.",
+        a: "No, it is a high quality interactive PDF designed for tablets and phones.",
       },
     ],
   },
@@ -129,12 +129,12 @@ export const categories = {
   sleep: {
     id: "sleep",
     title: "Sleep Mixtape",
-    subtitle: "Clinical-grade rest for recovery",
+    subtitle: "Clinical grade rest for recovery",
   },
   party: {
     id: "party",
     title: "Party Mixtape",
-    subtitle: "High-vibe frequencies for social magnetism",
+    subtitle: "High vibe frequencies for social magnetism",
   },
   shower: {
     id: "shower",

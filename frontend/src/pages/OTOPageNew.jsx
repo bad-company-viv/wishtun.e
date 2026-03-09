@@ -138,7 +138,7 @@ const OTOPage = () => {
               <span className="block italic text-purple-600 mt-2">Unlock the Full Experience.</span>
             </h1>
             <p className="text-xl text-gray-500 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-              The free track gives you a taste. The Core Package gives you the full healing music library — plus guided reprogramming sessions with Ria to accelerate your transformation.
+              The free track gives you a taste. The Core Package gives you the full healing music library, plus guided reprogramming sessions with Ria to accelerate your transformation.
             </p>
           </motion.div>
 
@@ -154,7 +154,7 @@ const OTOPage = () => {
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-gray-600 text-sm">
                   <Check size={16} className="text-green-500 shrink-0 mt-0.5" />
-                  <span>1x 10-minute Manifestation Reset Track</span>
+                  <span>1x 10 minute Manifestation Reset Track</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-400 text-sm">
                   <X size={16} className="text-red-300 shrink-0 mt-0.5" />
@@ -166,7 +166,7 @@ const OTOPage = () => {
                 </li>
                 <li className="flex items-start gap-3 text-gray-400 text-sm">
                   <X size={16} className="text-red-300 shrink-0 mt-0.5" />
-                  <span>No personalized 21-day roadmap</span>
+                  <span>No personalized 21 day roadmap</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-400 text-sm">
                   <X size={16} className="text-red-300 shrink-0 mt-0.5" />
@@ -187,15 +187,15 @@ const OTOPage = () => {
               </div>
 
               <p className="text-gray-500 mb-10 text-lg font-light leading-relaxed">
-                The Sleep Tape is a 60-minute calming audio for bedtime and slow mornings when your mind is naturally relaxed and more open to positive change.
+                The Sleep Tape is a 60 minute calming audio for bedtime and slow mornings when your mind is naturally relaxed and more open to positive change.
               </p>
 
               <ul className="space-y-4 mb-10">
                 {[
                   "Track Duration: 60 minutes",
                   "Soft, dreamy music for deep rest",
-                  "Perfect for sleep, yoga, and wind-down",
-                  "Builds calm confidence and self-belief",
+                  "Perfect for sleep, yoga, and wind down",
+                  "Builds calm confidence and self belief",
                   "Use nightly for best manifestation results"
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-gray-700 font-medium">
@@ -249,7 +249,7 @@ const OTOPage = () => {
               {
                 icon: <Brain className="text-purple-600" size={24} />,
                 title: "Psychology-Led Depth",
-                desc: "The Core Package is structured around real psychological reprogramming progression — not just a playlist.",
+                desc: "The Core Package is structured around real psychological reprogramming progression, not just a playlist.",
               },
               {
                 icon: <Layers className="text-pink-600" size={24} />,
@@ -259,7 +259,7 @@ const OTOPage = () => {
               {
                 icon: <Heart className="text-indigo-600" size={24} />,
                 title: "Ria's Guidance",
-                desc: "Access to reprogramming sessions means you understand how to listen, when, and why — for maximum impact.",
+                desc: "Access to reprogramming sessions means you understand how to listen, when, and why for maximum impact.",
               },
             ].map((item, i) => (
               <div key={i} className="bg-white border border-purple-50 rounded-3xl p-8 shadow-sm">
@@ -283,7 +283,7 @@ const OTOPage = () => {
               <span className="text-purple-300 text-xs font-black uppercase tracking-widest block mb-3">Looking for deeper work?</span>
               <h3 className="text-2xl md:text-3xl font-serif font-bold mb-3">Premium 1:1 Coaching with Ria</h3>
               <p className="text-white/70 font-light leading-relaxed max-w-2xl">
-                A fully personalized coaching engagement — subconscious audit, custom music protocol, and ongoing mentorship. Leave your details and Ria's team will reach out within 24 hours.
+                A fully personalized coaching engagement, subconscious audit, custom music protocol, and ongoing mentorship. Leave your details and Ria's team will reach out within 24 hours.
               </p>
             </div>
 
@@ -306,7 +306,7 @@ const OTOPage = () => {
             </div>
             <p className="text-gray-500 text-sm">Join thousands already on their healing journey</p>
             <div className="flex items-center gap-2 text-xs text-gray-400 mt-1">
-              <Lock size={12} /> Secure Payment • Instant Access • 21-Day Guarantee
+              <Lock size={12} /> Secure Payment • Instant Access • 21 Day Guarantee
             </div>
           </div>
         </div>

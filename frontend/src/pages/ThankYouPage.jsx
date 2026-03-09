@@ -24,11 +24,11 @@ const ThankYouPage = () => {
                         Welcome to Your Journey.
                     </h1>
                     <p className="text-xl text-white/70 mb-12 font-light leading-relaxed max-w-lg mx-auto">
-                        Your free Manifestation Track is on its way. Check your inbox — then follow these next steps.
+                        Your free Manifestation Track is on its way. Check your inbox, then follow these next steps.
                     </p>
                 </motion.div>
 
-                {/* Step-by-step next steps */}
+                {/* Step by step next steps */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -40,13 +40,13 @@ const ThankYouPage = () => {
                             step: "01",
                             icon: <Mail size={22} className="text-purple-300" />,
                             title: "Check Your Email",
-                            desc: "Your free track link is in your inbox. Subject: [Your Free Manifestation Track — Ria Gupta]",
+                            desc: "Your free track link is in your inbox. Subject: [Your Free Manifestation Track, Ria Gupta]",
                         },
                         {
                             step: "02",
                             icon: <Headphones size={22} className="text-pink-300" />,
                             title: "Listen with Intention",
-                            desc: "Find a quiet moment. Put on headphones if you can. Notice the shift — even after a single listen.",
+                            desc: "Find a quiet moment. Put on headphones if you can. Notice the shift, even after a single listen.",
                         },
                         {
                             step: "03",

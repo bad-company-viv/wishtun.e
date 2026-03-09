@@ -59,7 +59,7 @@ const Footer = () => {
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest text-white/30 mb-5">Start Here</h4>
             <p className="text-white/50 text-sm mb-6 leading-relaxed">
-              Not sure where to begin? Start with the free track — no commitment, just experience.
+              Not sure where to begin? Start with the free track, no commitment, just experience.
             </p>
             <div className="space-y-3">
               <Link
@@ -79,15 +79,47 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/25">
-          <p>© 2026 Wishtune by Ria Gupta — All Rights Reserved.</p>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-xs text-white/25 border-t border-white/5 pt-8">
+          <p>© 2026 Wishtune by Ria Gupta. All Rights Reserved.</p>
+
           <div className="flex items-center gap-1">
             <span>Made with</span>
             <Heart size={10} className="text-pink-400 mx-0.5" />
             <span>for conscious seekers</span>
           </div>
 
+          {/* Site Credits */}
+          <div className="flex items-center gap-4 bg-white px-5 py-2.5 rounded-2xl">
+            <a
+              href="https://fabulousmedia.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-105 transition-transform"
+              title="Fabulous Media"
+            >
+              <img
+                src="/sitecredits/fabulous.png"
+                alt="Fabulous Media"
+                className="h-7 w-auto object-contain"
+              />
+            </a>
+            <div className="w-px h-6 bg-black/10" />
+            <a
+              href="https://gocommercially.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-105 transition-transform"
+              title="Go Commercially"
+            >
+              <img
+                src="/sitecredits/gocomercially.svg"
+                alt="Go Commercially"
+                className="h-7 w-auto object-contain"
+              />
+            </a>
+          </div>
         </div>
+
       </div>
     </footer>
   );

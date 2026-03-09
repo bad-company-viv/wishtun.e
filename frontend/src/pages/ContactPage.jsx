@@ -40,7 +40,7 @@ const ContactPage = () => {
             <span className="italic text-purple-600">What's Possible?</span>
           </motion.h1>
           <p className="text-gray-500 text-lg max-w-xl mx-auto font-light leading-relaxed">
-            Book a free discovery call — a real conversation about your goals, Ria's approach, and whether it's the right fit. No pressure, no pitch.
+            Book a free discovery call, a real conversation about your goals, Ria's approach, and whether it's the right fit. No pressure, no pitch.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ const ContactPage = () => {
           <Brain className="w-12 h-12 text-purple-300 mx-auto mb-4" />
           <h2 className="text-2xl md:text-3xl font-serif font-bold mb-3">Book a Free Discovery Call</h2>
           <p className="text-white/70 font-light mb-8 max-w-lg mx-auto leading-relaxed">
-            A 30-minute call with Ria to understand your goals, explore how subconscious reprogramming applies to your life, and find the right starting point.
+            A 30 minute call with Ria to understand your goals, explore how subconscious reprogramming applies to your life, and find the right starting point.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -75,21 +75,21 @@ const ContactPage = () => {
             {
               icon: <Brain size={24} className="text-purple-600" />,
               title: "Free Manifestation Track",
-              desc: "Start here. A 10-minute psychologist-designed track to experience the technology firsthand.",
+              desc: "Start here. A 10 minute psychologist designed track to experience the technology firsthand.",
               cta: "Get Free Track →",
               href: "/free-gift",
             },
             {
               icon: <Layers size={24} className="text-pink-600" />,
               title: "Core Music + Guidance Package",
-              desc: "Full healing music library with multi-layered subliminal architecture and guided reprogramming sessions.",
+              desc: "Full healing music library with multi layered subliminal architecture and guided reprogramming sessions.",
               cta: "Explore Package →",
               href: "https://riagupta.com",
             },
             {
               icon: <Heart size={24} className="text-indigo-600" />,
               title: "Premium 1:1 Coaching",
-              desc: "Personal coaching with Ria — subconscious audit, custom protocol, and ongoing transformation mentorship.",
+              desc: "Personal coaching with Ria, subconscious audit, custom protocol, and ongoing transformation mentorship.",
               cta: "Book Discovery Call →",
               href: "https://riagupta.com",
             },

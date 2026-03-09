@@ -173,7 +173,7 @@ const ProductDetailPage = () => {
               Buy & Download Instantly
             </button>
             <p className="text-center text-sm text-gray-500 flex items-center justify-center gap-1">
-              <ShieldCheck size={14} /> 30-Day Money-Back Guarantee
+              <ShieldCheck size={14} /> 30 Day Money Back Guarantee
             </p>
           </div>
 

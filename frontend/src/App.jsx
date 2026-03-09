@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Outlet, useLocation } from "react-router-dom";
 import ProductDetailPage from "./pages/ProductDetailPage";
-import SqueezePage from "./pages/SqueezePageNew"; // Using the NEW high-converting version
-import OTOPage from "./pages/OTOPageNew"; // Using the NEW high-converting version
+import SqueezePage from "./pages/SqueezePageNew"; // Using the NEW high converting version
+import OTOPage from "./pages/OTOPageNew"; // Using the NEW high converting version
 import ThankYouPage from "./pages/ThankYouPage";
-import HomePage from "./pages/HomePageNew"; // Using the NEW high-converting version
+import HomePage from "./pages/HomePageNew"; // Using the NEW high converting version
 import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
 import Navbar from "./components/NavbarNew"; // Using the NEW premium version
@@ -45,7 +45,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
         </Route>
 
-        {/* High-Converting Funnel Pages (Minimal distractions) */}
+        {/* High Converting Funnel Pages (Minimal distractions) */}
         <Route path="/free-gift" element={<SqueezePage />} />
         <Route path="/offer" element={<OTOPage />} />
         <Route path="/thank-you" element={<ThankYouPage />} />
