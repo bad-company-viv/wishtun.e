@@ -479,7 +479,6 @@ const ProductLadderSection = () => {
       href: "/free-gift",
       items: [
         "10 minute sleep ready track",
-        "Introduction to Theta states",
         "Instant digital delivery",
         "No email marketing spam",
       ],
