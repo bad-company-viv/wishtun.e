@@ -34,6 +34,7 @@ import {
   ScrollText,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 
 
@@ -468,6 +469,17 @@ const QualificationSection = () => (
 // Product Ladder Section (NEW — 3 tiers per MoM)
 const ProductLadderSection = () => {
   const navigate = useNavigate();
+  
+  const handleSecureMixtape = () => {
+    // Navigate to manifestation page instead of adding to cart directly
+    navigate('/manifest');
+  };
+
+  const handleDiscoveryCall = () => {
+    // Trigger the same modal as the navbar
+    document.dispatchEvent(new CustomEvent('openDiscoveryForm'));
+  };
+  
   const tiers = [
     {
       level: "Start Here",
@@ -495,7 +507,7 @@ const ProductLadderSection = () => {
       price: "₹2,499",
       originalPrice: "₹5,999",
       cta: "Secure My Mixtape",
-      href: "/offer",
+      href: "secure-mixtape", // Special identifier for the secure mixtape action
       items: [
         "Track Duration: 60 minutes",
         "Soft, dreamy music for deep rest",
@@ -597,10 +609,15 @@ const ProductLadderSection = () => {
                   </a>
                 ) : (
                   <button
-                    onClick={() => tier.href === '#contact'
-                      ? document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })
-                      : navigate(tier.href)
-                    }
+                    onClick={() => {
+                      if (tier.href === 'secure-mixtape') {
+                        handleSecureMixtape();
+                      } else if (tier.href === '#contact') {
+                        handleDiscoveryCall();
+                      } else {
+                        navigate(tier.href);
+                      }
+                    }}
                     className={`w-full font-bold py-4 rounded-2xl flex items-center justify-center gap-2 text-base transition-all duration-300 ${tier.btnClass}`}
                   >
                     {tier.cta} <ArrowRight size={18} />
