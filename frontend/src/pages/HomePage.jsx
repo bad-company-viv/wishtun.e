@@ -321,37 +321,37 @@ const TestimonialSlider = () => {
       text: "I started playing the love sleep tape every night without thinking much about it. Three weeks later, I met someone who literally checks all my boxes. I'm meeting his parents day after. This seemed too good to be true but here we are!!!!!!",
       name: "Sanya P.",
       location: "New Delhi",
-      img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      img: "/images/testimonials/priya-k.jpeg", // Using available image as placeholder
     },
     {
       text: "I was skeptical. But I gave the money tape a try at night. Two days later, a client I hadn't heard from in months reached out and paid in full. No coincidence in my book.",
       name: "Leah M.",
       location: "Vancouver",
-      img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      img: "/images/testimonials/shreya-m.jpeg", // Using available image as placeholder
     },
     {
       text: "I was falling asleep to the Wealth sleep tape for a week and out of nowhere, I got a job offer with better pay and they're offering me work-from-home. This is exactly what I envisioned. Worth every penny.",
       name: "Melanie T.",
       location: "Toronto",
-      img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      img: "/images/testimonials/ananya-r.jpeg", // Using available image as placeholder
     },
     {
       text: "I used the 'Beauty Tape' for JUST three days. People kept asking me what was different. One guy literally said, 'You have a glow today.' It gave me chills.",
       name: "Ishita G.",
       location: "Mumbai",
-      img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      img: "/images/testimonials/priya-k.jpeg", // Using available image as placeholder
     },
     {
       text: "Ria has understood me since day 1, she's deeply spiritual and has some beautiful outtakes on life. Sessions with her feel like you're with a friend who understands.",
       name: "Nikita Kapoor",
       location: "New Delhi",
-      img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      img: "/images/testimonials/shreya-m.jpeg", // Using available image as placeholder
     },
     {
       text: "My anxiety levels have dropped significantly since I started the Shower Mixtape. It's become my favorite part of the morning.",
       name: "Arjun K.",
       location: "Bangalore",
-      img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      img: "/images/testimonials/ananya-r.jpeg", // Using available image as placeholder
     },
   ];
 

@@ -231,11 +231,11 @@ const SqueezePage = () => {
               </div>
               <div className="flex -space-x-2">
                 {[
-                  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
-                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
-                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
-                  "https://images.unsplash.com/photo-1521119989659-a83eee4882b2?w=100&h=100&fit=crop",
-                  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop"
+                  "/images/testimonials/priya-k.jpeg", // Using your uploaded images
+                  "/images/testimonials/shreya-m.jpeg",
+                  "/images/testimonials/ananya-r.jpeg",
+                  "/images/testimonials/priya-k.jpeg", // Repeating for 5 avatars
+                  "/images/testimonials/shreya-m.jpeg"
                 ].map((url, i) => (
                   <img key={i} src={url} className="w-8 h-8 rounded-full border-2 border-white object-cover" alt={`User ${i}`} />
                 ))}

@@ -103,7 +103,7 @@ const PurchaseNotification = () => {
     { name: "Priya S.", location: "Mumbai", action: "just bought the Sleep Mixtape", time: "2 minutes ago" },
     { name: "Rohan V.", location: "Delhi", action: "secured his Sleep Mixtape", time: "5 minutes ago" },
     { name: "Ananya K.", location: "Bangalore", action: "just bought the Sleep Mixtape", time: "1 minute ago" },
-    { name: "Divya M.", location: "Pune", action: "started her Sleep Mixtape journey", time: "8 minutes ago" },
+
     { name: "Karan S.", location: "Hyderabad", action: "just bought the Sleep Mixtape", time: "3 minutes ago" },
     { name: "Sneha J.", location: "Mumbai", action: "secured her Sleep Mixtape", time: "10 minutes ago" },
     { name: "Amit P.", location: "Bangalore", action: "just bought the Sleep Mixtape", time: "4 minutes ago" },
@@ -728,21 +728,21 @@ const ExperienceStoriesSection = () => {
       text: "I approached this skeptically, I'm not someone who believes in anything unproven. But the psychology behind it made sense. After 3 weeks of consistent listening, my anxiety baseline genuinely shifted. I feel calmer without trying.",
       name: "Priya K.",
       location: "Bangalore",
-      img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      img: "/testimonials/priya-k.jpeg", // Updated to .jpeg extension
       tag: "21 day journey"
     },
     {
       text: "I'm a psychology student, so when Ria explained the subconscious mechanism behind the music, I was genuinely impressed. The layering is real, you can feel the shift without consciously hearing it. This is genuinely different from everything else.",
-      name: "Shreya M.",
+      name: "Rahul.",
       location: "Delhi",
-      img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      img: "/testimonials/rahul.jpeg", // Updated to .jpeg extension
       tag: "Sleep Mixtape"
     },
     {
       text: "A month of listening and I've stopped waking up with that familiar sense of dread. I don't know exactly how to explain it, but something fundamental has changed. I'm more decisive, less reactive. Highly recommend starting with the free track.",
       name: "Ananya R.",
       location: "Mumbai",
-      img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      img: "/testimonials/ananya-r.jpeg", // Updated to .jpeg extension
       tag: "Free track → Sleep Mixtape"
     },
   ];
@@ -888,7 +888,7 @@ const FAQSection = () => (
           { q: "Is there actual psychology behind this?", a: "Yes. Ria is a trained psychologist. Every element of the music, the layering, the affirmation placement, the frequency choices, is grounded in how the subconscious mind processes information during relaxed states. This is not generic wellness content." },
           { q: "Will I consciously hear the affirmations?", a: "No, and that's intentional. The affirmations are layered beneath the music specifically to bypass your conscious defenses. Your logical mind would filter them out. Your subconscious, however, absorbs them during relaxed states." },
           { q: "How long before I feel a difference?", a: "Most listeners report a subtle shift in mood and baseline anxiety within the first week. For deeper reprogramming, identity level shifts, we recommend 21+ days of regular listening. This is a long term investment in your subconscious baseline." },
-          { q: "What's the difference between music tiers?", a: "The free track is an experience, a taster to feel Ria's approach. The Sleep Mixtape is a structured program, music library + guided sessions + 21 day roadmap. It's self directed with community support. 1:1 Coaching is fully personalized: Ria audits your specific subconscious patterns and builds a custom protocol around your individual goals." },
+          { q: "What's the difference between music tiers?", a: "The free track is an experience, a taster to feel Ria's approach. The Sleep Mixtape is a complete 60-minute audio designed for bedtime listening. Once you purchase, you'll receive dos and don'ts for optimal results - including best listening times, volume settings, and how to maximize the subconscious programming effect." },
           { q: "Can I book a consultation first?", a: "Absolutely. In fact, we encourage it. A discovery call with Ria lets you understand whether her approach is right for you before any commitment. Use the 'Book a Discovery Call' button to start that conversation." },
         ].map((faq, i) => (
           <div key={i} className="bg-white p-8 rounded-3xl border border-purple-100 shadow-sm">
@@ -1066,7 +1066,7 @@ const HomePage = () => {
           >
             <Zap className="w-4 h-4 text-purple-600" />
             <span className="text-xs font-black text-purple-700 uppercase tracking-[0.2em]">
-              Psychologist Designed • Science Backed • Ethical Manifestation
+              Psychologist Designed • Science Backed
             </span>
           </motion.div>
 

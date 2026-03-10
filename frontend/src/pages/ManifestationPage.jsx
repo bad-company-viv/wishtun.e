@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+
 import { Sparkles, Check, ArrowRight } from 'lucide-react';
 
 const ManifestationPage = () => {
@@ -44,12 +44,6 @@ const ManifestationPage = () => {
                 <div className="relative z-10 text-center">
                     {/* Header */}
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-                        <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <Sparkles className="text-purple-600 w-8 h-8" />
-                        </div>
-                        <span className="inline-block bg-purple-100 text-purple-700 px-5 py-1.5 rounded-full text-sm font-bold mb-6 uppercase tracking-widest">
-                            Step 1 of 2 - Personalize
-                        </span>
                         <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6 leading-tight text-gray-900">
                             What Do You Want
                             <span className="block italic text-purple-600 mt-2">to Manifest?</span>

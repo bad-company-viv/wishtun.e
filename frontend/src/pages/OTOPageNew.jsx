@@ -295,11 +295,11 @@ const OTOPage = () => {
           <div className="mt-12 flex flex-col items-center gap-3">
             <div className="flex -space-x-3">
               {[
-                "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
-                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
-                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
-                "https://images.unsplash.com/photo-1521119989659-a83eee4882b2?w=100&h=100&fit=crop",
-                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop"
+                "/images/testimonials/priya-k.jpeg", // Using your uploaded images
+                "/images/testimonials/shreya-m.jpeg",
+                "/images/testimonials/ananya-r.jpeg",
+                "/images/testimonials/priya-k.jpeg", // Repeating for 5 avatars
+                "/images/testimonials/shreya-m.jpeg"
               ].map((url, i) => (
                 <img key={i} src={url} className="w-11 h-11 rounded-full border-4 border-white object-cover shadow-md" alt={`User ${i}`} />
               ))}
